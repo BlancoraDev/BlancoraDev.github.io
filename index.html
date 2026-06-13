@@ -3,485 +3,323 @@
   ============================================================================
   PORTAFOLIO PROFESIONAL — Kenyi Blanca Escobedo Arapa
   Marca personal: "Blancora"
-  Stack: HTML + CSS + JavaScript nativo (archivo único, sin frameworks)
-  Listo para GitHub Pages.
+  Stack: HTML + CSS + JavaScript nativo (archivo unico, sin frameworks)
+  Version 2 - optimizada (accesibilidad AA, responsive, rendimiento)
 
-  GUÍA RÁPIDA DE EDICIÓN
+  GUIA RAPIDA DE EDICION
   ----------------------------------------------------------------------------
-  · Enlaces de redes sociales y contacto:  busca el bloque  <!-- DATOS EDITABLES -->
-    al inicio del <script>. Cambia ahí tus URLs reales una sola vez.
-  · Colores:  variables CSS en  :root  (sección PALETA).
-  · Texto:  todo el contenido visible está en este mismo archivo, en español.
+  1. Enlaces y contacto -> objeto  DATOS  al inicio del <script>. Editalo una vez.
+  2. Foto -> busca  data-photo  en la seccion .portrait y descomenta la <img>.
+  3. Colores -> variables CSS en  :root  (seccion PALETA).
+  4. CV -> coloca tu PDF junto a este archivo con el nombre de  DATOS.cvArchivo.
   ============================================================================
 -->
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kenyi Blanca Escobedo Arapa — Blancora | Ingeniería de Software & IA</title>
-  <meta name="description" content="Portafolio profesional de Kenyi Blanca Escobedo Arapa. Técnica en Ingeniería de Software con Inteligencia Artificial y estudiante de Estadística e Informática. Desarrollo web, soporte técnico y datos." />
-  <meta name="author" content="Kenyi Blanca Escobedo Arapa" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#b76e87" />
 
-  <!-- Open Graph para compartir en redes -->
+  <title>Kenyi Blanca Escobedo Arapa — Blancora | Ingeniería de Software &amp; IA</title>
+  <meta name="description" content="Portafolio profesional de Kenyi Blanca Escobedo Arapa: técnica en Ingeniería de Software con Inteligencia Artificial y estudiante de Estadística e Informática. Desarrollo web, soporte técnico y análisis de datos en Puno, Perú." />
+  <meta name="author" content="Kenyi Blanca Escobedo Arapa" />
+  <meta name="keywords" content="Kenyi Escobedo, Blancora, desarrollo web, soporte técnico, WordPress, inteligencia artificial, Puno, Perú, portafolio" />
+
   <meta property="og:title" content="Kenyi Blanca Escobedo Arapa — Blancora" />
   <meta property="og:description" content="Ingeniería de Software con IA · Estadística e Informática · Desarrollo web" />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_PE" />
+  <!-- Miniatura SVG embebida para previsualización al compartir (archivo único, sin assets externos) -->
+  <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'%3E%3Crect width='1200' height='630' fill='%23faf0f4'/%3E%3Ctext x='80' y='300' font-family='Georgia,serif' font-style='italic' font-size='92' fill='%23a85978'%3EBlancora%3C/text%3E%3Ctext x='84' y='370' font-family='sans-serif' font-size='34' fill='%23685662'%3EKenyi Blanca Escobedo Arapa%3C/text%3E%3Ctext x='84' y='420' font-family='sans-serif' font-size='26' fill='%23685662'%3EIngenieria de Software con IA · Desarrollo web%3C/text%3E%3C/svg%3E" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Tipografías: Fraunces (display con carácter) + Outfit (cuerpo) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23b76e87'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-style='italic' font-size='58' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* =======================================================================
-       PALETA — rosa pastel, rosa empolvado, blanco y tonos claros sofisticados
-       ======================================================================= */
+    /* ===== PALETA (contrastes verificados WCAG AA) ===== */
     :root{
-      --rose-deep:    #b76e87;   /* rosa empolvado profundo, para acentos fuertes */
-      --rose:         #d59bb0;   /* rosa empolvado medio */
-      --rose-soft:    #f0d7e0;   /* rosa pastel */
-      --rose-mist:    #faf0f4;   /* rosa muy claro, fondos */
-      --blush:        #fdf8fa;   /* casi blanco con tinte rosado */
-      --white:        #ffffff;
-      --ink:          #3a2c33;   /* tinta cálida, casi negro */
-      --ink-soft:     #6f5d66;   /* texto secundario */
-      --line:         #ecd9e1;   /* hairlines */
-      --gold:         #c9a98c;   /* dorado suave para detalles premium */
-
-      --shadow-sm: 0 2px 14px rgba(122, 71, 92, .07);
-      --shadow-md: 0 14px 40px rgba(122, 71, 92, .12);
-      --shadow-lg: 0 28px 70px rgba(122, 71, 92, .18);
-
-      --r-sm: 14px;
-      --r-md: 22px;
-      --r-lg: 34px;
-
-      --maxw: 1180px;
-      --ease: cubic-bezier(.22, .61, .36, 1);
-
-      --font-display: "Fraunces", Georgia, "Times New Roman", serif;
-      --font-body: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --rose-deep:#a85978; --rose:#d59bb0; --rose-soft:#f0d7e0;
+      --rose-mist:#faf0f4; --blush:#fdf8fa; --white:#ffffff;
+      --ink:#34262d; --ink-soft:#685662; --line:#ecd9e1;
+      --shadow-sm:0 2px 14px rgba(122,71,92,.07);
+      --shadow-md:0 14px 40px rgba(122,71,92,.12);
+      --shadow-lg:0 28px 70px rgba(122,71,92,.18);
+      --r-sm:14px; --r-md:22px; --r-lg:34px;
+      --maxw:1180px; --nav-h:76px;
+      --ease:cubic-bezier(.22,.61,.36,1);
+      --font-display:"Fraunces",Georgia,"Times New Roman",serif;
+      --font-body:"Outfit",system-ui,-apple-system,"Segoe UI",sans-serif;
     }
-
-    /* =======================================================================
-       RESET / BASE
-       ======================================================================= */
+    /* ===== RESET / BASE ===== */
     *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
     html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
-    @media (prefers-reduced-motion: reduce){
-      html{ scroll-behavior:auto; }
-      *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
-    }
-
-    body{
-      font-family:var(--font-body);
-      color:var(--ink);
-      background:var(--blush);
-      line-height:1.65;
-      overflow-x:hidden;
-      font-weight:400;
-    }
-
-    h1,h2,h3,h4{ font-family:var(--font-display); font-weight:400; line-height:1.08; letter-spacing:-.01em; }
+    body{ font-family:var(--font-body); color:var(--ink); background:var(--blush); line-height:1.65; overflow-x:hidden; font-weight:400; }
+    h1,h2,h3,h4{ font-family:var(--font-display); font-weight:400; line-height:1.08; letter-spacing:-.01em; overflow-wrap:break-word; }
     a{ color:inherit; text-decoration:none; }
     img{ max-width:100%; display:block; }
     ul{ list-style:none; }
+    svg{ flex:none; }
     section{ position:relative; }
-
-    .wrap{ width:100%; max-width:var(--maxw); margin-inline:auto; padding-inline:clamp(20px, 5vw, 48px); }
-
-    /* Eyebrow / etiqueta de sección */
-    .eyebrow{
-      display:inline-flex; align-items:center; gap:.6em;
-      font-family:var(--font-body);
-      font-size:.72rem; font-weight:600; letter-spacing:.28em; text-transform:uppercase;
-      color:var(--rose-deep);
+    section[id]{ scroll-margin-top:calc(var(--nav-h) + 14px); }
+    @media (prefers-reduced-motion:reduce){
+      html{ scroll-behavior:auto; }
+      *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+      /* Decorativos en bucle: detenerlos por completo, no congelarlos a mitad */
+      .blob, .marquee-track, .portrait .ring{ animation:none !important; }
     }
-    .eyebrow::before{ content:""; width:30px; height:1px; background:var(--rose); display:inline-block; }
+    .skip-link{ position:absolute; left:-9999px; top:8px; z-index:200; background:var(--ink); color:#fff; padding:10px 18px; border-radius:10px; font-weight:600; }
+    .skip-link:focus{ left:12px; }
+    a:focus-visible, button:focus-visible{ outline:3px solid var(--rose-deep); outline-offset:3px; border-radius:6px; }
 
-    .section-head{ margin-bottom:clamp(34px, 5vw, 60px); max-width:680px; }
-    .section-head h2{ font-size:clamp(2rem, 5vw, 3.2rem); margin-top:.5rem; color:var(--ink); }
-    .section-head h2 em{ font-style:italic; color:var(--rose-deep); }
+    .wrap{ width:100%; max-width:var(--maxw); margin-inline:auto; padding-inline:clamp(20px,5vw,48px); }
+    .pad{ padding-block:clamp(72px,11vw,128px); }
+    .surface{ background:var(--rose-mist); border-radius:var(--r-lg); }
+
+    .eyebrow{ display:inline-flex; align-items:center; gap:.6em; font-size:.72rem; font-weight:600; letter-spacing:.28em; text-transform:uppercase; color:var(--rose-deep); }
+    .eyebrow::before{ content:""; width:30px; height:1px; background:var(--rose); display:inline-block; }
+    .section-head{ margin-bottom:clamp(34px,5vw,60px); max-width:680px; }
+    .section-head h2{ font-size:clamp(2rem,5vw,3.2rem); margin-top:.5rem; color:var(--ink); }
+    .section-head h2 em, .em{ font-style:italic; color:var(--rose-deep); }
     .section-head p{ color:var(--ink-soft); margin-top:1rem; font-size:1.04rem; max-width:560px; }
 
-    .pad{ padding-block:clamp(72px, 11vw, 128px); }
-
-    /* =======================================================================
-       FONDO DINÁMICO SUTIL — blobs rosados que respiran lentamente
-       ======================================================================= */
-    .bg-canvas{ position:fixed; inset:0; z-index:-2; overflow:hidden; pointer-events:none; }
+    /* ===== FONDO DINAMICO ===== */
+    .bg-canvas{ position:fixed; inset:0; z-index:-2; overflow:hidden; pointer-events:none; max-width:100vw; }
     .blob{ position:absolute; border-radius:50%; filter:blur(70px); opacity:.5; }
-    .blob.b1{ width:46vw; height:46vw; left:-12vw; top:-10vw; background:radial-gradient(circle, #f7dbe7, transparent 70%); animation:drift 22s var(--ease) infinite alternate; }
-    .blob.b2{ width:40vw; height:40vw; right:-14vw; top:18vh; background:radial-gradient(circle, #f3e3d6, transparent 70%); animation:drift 26s var(--ease) infinite alternate-reverse; }
-    .blob.b3{ width:38vw; height:38vw; left:30vw; bottom:-16vw; background:radial-gradient(circle, #efd5e0, transparent 70%); animation:drift 30s var(--ease) infinite alternate; }
-    @keyframes drift{ from{ transform:translate(0,0) scale(1); } to{ transform:translate(5%, 6%) scale(1.12); } }
+    .blob.b1{ width:46vw; height:46vw; left:-12vw; top:-10vw; background:radial-gradient(circle,#f7dbe7,transparent 70%); animation:drift 22s var(--ease) infinite alternate; }
+    .blob.b2{ width:40vw; height:40vw; right:-14vw; top:18vh; background:radial-gradient(circle,#f3e3d6,transparent 70%); animation:drift 26s var(--ease) infinite alternate-reverse; }
+    .blob.b3{ width:38vw; height:38vw; left:30vw; bottom:-16vw; background:radial-gradient(circle,#efd5e0,transparent 70%); animation:drift 30s var(--ease) infinite alternate; }
+    @keyframes drift{ from{ transform:translate(0,0) scale(1); } to{ transform:translate(5%,6%) scale(1.12); } }
+    .bg-grain{ position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.035; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 
-    /* grano/textura fina para tacto premium */
-    .bg-grain{ position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.035;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
-
-    /* =======================================================================
-       NAVBAR
-       ======================================================================= */
-    header.nav{
-      position:fixed; top:0; left:0; right:0; z-index:100;
-      transition:background .4s var(--ease), box-shadow .4s var(--ease), padding .4s var(--ease);
-      padding-block:20px;
-    }
-    header.nav.scrolled{
-      background:rgba(253,248,250,.82);
-      backdrop-filter:saturate(160%) blur(14px);
-      -webkit-backdrop-filter:saturate(160%) blur(14px);
-      box-shadow:0 1px 0 var(--line);
-      padding-block:12px;
-    }
+    /* ===== NAVBAR ===== */
+    .nav{ position:fixed; top:0; left:0; right:0; z-index:100; padding-block:20px; transition:background .4s var(--ease),box-shadow .4s var(--ease),padding .4s var(--ease); }
+    .nav.scrolled{ background:rgba(253,248,250,.82); backdrop-filter:saturate(160%) blur(14px); -webkit-backdrop-filter:saturate(160%) blur(14px); box-shadow:0 1px 0 var(--line); padding-block:12px; }
     .nav-inner{ display:flex; align-items:center; justify-content:space-between; gap:24px; }
-
-    /* Logotipo de marca */
     .brand{ display:flex; align-items:center; gap:12px; }
-    .brand .mark{
-      width:42px; height:42px; border-radius:13px; flex:0 0 auto;
-      background:linear-gradient(135deg, var(--rose), var(--rose-deep));
-      display:grid; place-items:center; color:#fff;
-      font-family:var(--font-display); font-size:1.35rem; font-style:italic;
-      box-shadow:var(--shadow-sm);
-    }
-    .brand .name{ font-family:var(--font-display); font-size:1.18rem; letter-spacing:.02em; }
+    .brand .mark{ width:42px; height:42px; border-radius:13px; background:linear-gradient(135deg,var(--rose),var(--rose-deep)); display:grid; place-items:center; color:#fff; font-family:var(--font-display); font-size:1.35rem; font-style:italic; box-shadow:var(--shadow-sm); }
+    .brand .name{ font-family:var(--font-display); font-size:1.18rem; letter-spacing:.02em; line-height:1.1; }
     .brand .name b{ font-weight:500; }
-    .brand .name span{ display:block; font-family:var(--font-body); font-size:.62rem; letter-spacing:.32em; text-transform:uppercase; color:var(--ink-soft); margin-top:-2px; }
-
-    nav.menu{ display:flex; align-items:center; gap:6px; }
-    nav.menu a{
-      font-size:.92rem; font-weight:500; color:var(--ink-soft);
-      padding:9px 15px; border-radius:999px; position:relative; transition:color .25s, background .25s;
-    }
-    nav.menu a:hover{ color:var(--rose-deep); background:var(--rose-mist); }
-    .nav-cta{
-      font-size:.9rem !important; font-weight:600 !important; color:#fff !important;
-      background:linear-gradient(135deg, var(--rose-deep), var(--rose));
-      box-shadow:var(--shadow-sm);
-    }
-    .nav-cta:hover{ color:#fff !important; background:linear-gradient(135deg, var(--rose), var(--rose-deep)) !important; transform:translateY(-1px); }
-
-    /* Botón hamburguesa */
+    .brand .name small{ display:block; font-family:var(--font-body); font-size:.62rem; letter-spacing:.32em; text-transform:uppercase; color:var(--ink-soft); margin-top:1px; }
+    .menu{ display:flex; align-items:center; gap:6px; }
+    .menu a{ font-size:.92rem; font-weight:500; color:var(--ink-soft); padding:9px 15px; border-radius:999px; transition:color .25s,background .25s; }
+    .menu a:hover{ color:var(--rose-deep); background:var(--rose-mist); }
+    .menu a.active:not(.nav-cta){ color:var(--rose-deep); background:var(--rose-mist); }
+    .nav-cta{ color:#fff !important; font-weight:600; background:linear-gradient(135deg,var(--rose-deep),var(--rose)); box-shadow:var(--shadow-sm); }
+    .nav-cta:hover{ background:linear-gradient(135deg,var(--rose),var(--rose-deep)); transform:translateY(-1px); }
     .burger{ display:none; flex-direction:column; gap:5px; width:42px; height:42px; border:1px solid var(--line); border-radius:12px; background:rgba(255,255,255,.6); cursor:pointer; align-items:center; justify-content:center; }
     .burger span{ width:18px; height:2px; background:var(--ink); border-radius:2px; transition:.3s var(--ease); }
     .burger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
     .burger.open span:nth-child(2){ opacity:0; }
     .burger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+    .menu-overlay{ position:fixed; inset:0; background:rgba(52,38,45,.4); opacity:0; visibility:hidden; transition:opacity .35s; z-index:98; }
+    .menu-overlay.show{ opacity:1; visibility:visible; }
 
-    /* =======================================================================
-       HERO
-       ======================================================================= */
-    .hero{ padding-top:clamp(120px, 17vw, 180px); padding-bottom:clamp(60px, 9vw, 110px); }
-    .hero-grid{ display:grid; grid-template-columns:1.15fr .85fr; gap:clamp(36px, 6vw, 80px); align-items:center; }
-
-    .hero-tag{
-      display:inline-flex; align-items:center; gap:9px;
-      background:var(--white); border:1px solid var(--line);
-      padding:8px 16px; border-radius:999px; box-shadow:var(--shadow-sm);
-      font-size:.82rem; font-weight:500; color:var(--ink-soft);
-    }
-    .hero-tag .dot{ width:8px; height:8px; border-radius:50%; background:#7ec79a; box-shadow:0 0 0 4px rgba(126,199,154,.22); }
-
-    .hero h1{
-      font-size:clamp(2.9rem, 8vw, 5.4rem);
-      margin:24px 0 18px; color:var(--ink);
-    }
+    /* ===== HERO ===== */
+    .hero{ padding-top:clamp(120px,17vw,180px); padding-bottom:clamp(60px,9vw,110px); }
+    .hero-grid{ display:grid; grid-template-columns:1.15fr .85fr; gap:clamp(36px,6vw,80px); align-items:center; }
+    .hero-tag{ display:inline-flex; align-items:center; gap:9px; background:var(--white); border:1px solid var(--line); padding:8px 16px; border-radius:999px; box-shadow:var(--shadow-sm); font-size:.82rem; font-weight:500; color:var(--ink-soft); }
+    .hero-tag .dot{ width:8px; height:8px; border-radius:50%; background:#3f9e63; box-shadow:0 0 0 4px rgba(63,158,99,.22); }
+    .hero h1{ font-size:clamp(2.9rem,8vw,5.4rem); margin:24px 0 18px; color:var(--ink); }
     .hero h1 .line2{ display:block; font-style:italic; color:var(--rose-deep); }
-    .hero .role{ font-size:clamp(1rem, 2.4vw, 1.28rem); font-weight:500; color:var(--ink-soft); max-width:520px; }
+    .hero .role{ font-size:clamp(1rem,2.4vw,1.28rem); font-weight:500; color:var(--ink-soft); max-width:520px; }
     .hero .role b{ color:var(--rose-deep); font-weight:600; }
-
     .hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:34px; }
-    .btn{
-      display:inline-flex; align-items:center; gap:10px;
-      font-family:var(--font-body); font-weight:600; font-size:.98rem;
-      padding:15px 26px; border-radius:999px; cursor:pointer; border:1px solid transparent;
-      transition:transform .25s var(--ease), box-shadow .3s var(--ease), background .3s, color .3s;
-    }
+    .btn{ display:inline-flex; align-items:center; gap:10px; font-family:var(--font-body); font-weight:600; font-size:.98rem; padding:15px 26px; border-radius:999px; cursor:pointer; border:1px solid transparent; transition:transform .25s var(--ease),box-shadow .3s var(--ease),background .3s,color .3s,border-color .3s; }
     .btn svg{ width:18px; height:18px; }
-    .btn-primary{ background:linear-gradient(135deg, var(--rose-deep), var(--rose)); color:#fff; box-shadow:var(--shadow-md); }
+    .btn-primary{ background:linear-gradient(135deg,var(--rose-deep),var(--rose)); color:#fff; box-shadow:var(--shadow-md); }
     .btn-primary:hover{ transform:translateY(-3px); box-shadow:var(--shadow-lg); }
     .btn-ghost{ background:var(--white); color:var(--ink); border-color:var(--line); box-shadow:var(--shadow-sm); }
     .btn-ghost:hover{ transform:translateY(-3px); border-color:var(--rose); color:var(--rose-deep); }
-
-    .hero-stats{ display:flex; gap:clamp(20px, 4vw, 42px); margin-top:46px; flex-wrap:wrap; }
-    .hero-stats .stat strong{ display:block; font-family:var(--font-display); font-size:2.2rem; color:var(--rose-deep); line-height:1; }
+    .hero-stats{ display:flex; gap:clamp(18px,4vw,42px); margin-top:46px; flex-wrap:wrap; }
+    .hero-stats .stat strong{ display:block; font-family:var(--font-display); font-size:clamp(1.8rem,4vw,2.2rem); color:var(--rose-deep); line-height:1; }
     .hero-stats .stat span{ font-size:.82rem; color:var(--ink-soft); letter-spacing:.04em; }
-
-    /* Retrato del hero */
     .portrait{ position:relative; justify-self:center; }
-    .portrait .frame{
-      width:clamp(240px, 34vw, 380px); aspect-ratio:4/5;
-      border-radius:160px 160px 28px 28px;
-      background:linear-gradient(150deg, var(--rose-soft), var(--white));
-      box-shadow:var(--shadow-lg);
-      display:grid; place-items:center; overflow:hidden;
-      border:6px solid var(--white);
-    }
-    /* Si no hay foto: monograma elegante como respaldo */
+    .portrait .frame{ width:clamp(240px,34vw,380px); aspect-ratio:4/5; border-radius:160px 160px 28px 28px; background:linear-gradient(150deg,var(--rose-soft),var(--white)); box-shadow:var(--shadow-lg); display:grid; place-items:center; overflow:hidden; border:6px solid var(--white); }
+    .portrait .frame img{ width:100%; height:100%; object-fit:cover; }
     .portrait .frame .mono{ font-family:var(--font-display); font-style:italic; font-size:clamp(5rem,12vw,8rem); color:var(--rose); }
     .portrait .ring{ position:absolute; inset:-22px; border:1px dashed var(--rose); border-radius:170px 170px 40px 40px; animation:spin 50s linear infinite; opacity:.55; }
     @keyframes spin{ to{ transform:rotate(360deg); } }
-    .portrait .badge{
-      position:absolute; bottom:18px; left:-26px;
-      background:var(--white); border-radius:18px; padding:14px 18px; box-shadow:var(--shadow-md);
-      display:flex; align-items:center; gap:12px;
-    }
+    .portrait .badge{ position:absolute; bottom:18px; left:-26px; background:var(--white); border-radius:18px; padding:14px 18px; box-shadow:var(--shadow-md); display:flex; align-items:center; gap:12px; }
     .portrait .badge .ico{ width:38px; height:38px; border-radius:12px; background:var(--rose-mist); display:grid; place-items:center; color:var(--rose-deep); }
     .portrait .badge .ico svg{ width:20px; height:20px; }
     .portrait .badge b{ display:block; font-family:var(--font-body); font-weight:700; font-size:.92rem; }
     .portrait .badge span{ font-size:.72rem; color:var(--ink-soft); }
-    .portrait .chip{
-      position:absolute; top:26px; right:-20px;
-      background:linear-gradient(135deg, var(--rose-deep), var(--rose)); color:#fff;
-      border-radius:14px; padding:10px 16px; box-shadow:var(--shadow-md);
-      font-size:.8rem; font-weight:600; letter-spacing:.04em;
-    }
+    .portrait .chip{ position:absolute; top:26px; right:-20px; background:linear-gradient(135deg,var(--rose-deep),var(--rose)); color:#fff; border-radius:14px; padding:10px 16px; box-shadow:var(--shadow-md); font-size:.8rem; font-weight:600; letter-spacing:.04em; }
 
-    /* =======================================================================
-       MARQUEE de tecnologías bajo el hero
-       ======================================================================= */
+    /* ===== MARQUEE ===== */
     .marquee{ border-block:1px solid var(--line); background:rgba(255,255,255,.5); overflow:hidden; padding-block:18px; }
     .marquee-track{ display:flex; gap:48px; width:max-content; animation:slide 28s linear infinite; }
     .marquee:hover .marquee-track{ animation-play-state:paused; }
     .marquee-track span{ font-family:var(--font-display); font-style:italic; font-size:1.15rem; color:var(--ink-soft); white-space:nowrap; display:flex; align-items:center; gap:48px; }
-    .marquee-track span::after{ content:"✦"; color:var(--rose); font-style:normal; font-size:.8rem; }
+    .marquee-track span::after{ content:"\2726"; color:var(--rose); font-style:normal; font-size:.8rem; }
     @keyframes slide{ to{ transform:translateX(-50%); } }
 
-    /* =======================================================================
-       SOBRE MÍ
-       ======================================================================= */
+    /* ===== SOBRE MI ===== */
     .about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(34px,5vw,72px); align-items:center; }
+    .about-text h2{ font-size:clamp(2rem,5vw,3rem); margin:.5rem 0 1.2rem; }
     .about-text p{ color:var(--ink-soft); font-size:1.06rem; margin-bottom:1.1rem; }
     .about-text p .hl{ color:var(--ink); font-weight:500; }
-    .about-quote{
-      border-left:3px solid var(--rose); padding:6px 0 6px 22px; margin:26px 0;
-      font-family:var(--font-display); font-style:italic; font-size:1.3rem; color:var(--ink); line-height:1.4;
-    }
+    .about-quote{ border-left:3px solid var(--rose); padding:6px 0 6px 22px; margin:26px 0; font-family:var(--font-display); font-style:italic; font-size:1.3rem; color:var(--ink); line-height:1.4; }
     .about-values{ display:flex; flex-wrap:wrap; gap:10px; margin-top:8px; }
     .about-values span{ font-size:.85rem; font-weight:500; color:var(--rose-deep); background:var(--rose-mist); border:1px solid var(--line); padding:7px 15px; border-radius:999px; }
-
-    .about-card{
-      background:var(--white); border:1px solid var(--line); border-radius:var(--r-lg);
-      padding:clamp(26px,3.4vw,40px); box-shadow:var(--shadow-md);
-    }
+    .about-card{ background:var(--white); border:1px solid var(--line); border-radius:var(--r-lg); padding:clamp(26px,3.4vw,40px); box-shadow:var(--shadow-md); }
     .about-card h3{ font-size:1.4rem; margin-bottom:6px; }
     .about-card .sub{ font-size:.86rem; color:var(--ink-soft); margin-bottom:22px; }
     .mini-list li{ display:flex; gap:14px; padding:14px 0; border-bottom:1px solid var(--line); align-items:flex-start; }
     .mini-list li:last-child{ border-bottom:0; padding-bottom:0; }
-    .mini-list .k{ width:40px; height:40px; flex:0 0 auto; border-radius:12px; background:var(--rose-mist); display:grid; place-items:center; color:var(--rose-deep); }
+    .mini-list .k{ width:40px; height:40px; border-radius:12px; background:var(--rose-mist); display:grid; place-items:center; color:var(--rose-deep); }
     .mini-list .k svg{ width:20px; height:20px; }
     .mini-list .v b{ display:block; font-family:var(--font-body); font-weight:600; font-size:.96rem; }
     .mini-list .v span{ font-size:.84rem; color:var(--ink-soft); }
 
-    /* =======================================================================
-       HABILIDADES (barras)
-       ======================================================================= */
+    /* ===== HABILIDADES ===== */
     .skills-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(26px,4vw,56px); }
     .skill-col h3{ font-size:1.25rem; margin-bottom:22px; display:flex; align-items:center; gap:10px; }
-    .skill-col h3 .ico{ width:34px;height:34px;border-radius:10px;background:var(--rose-mist);display:grid;place-items:center;color:var(--rose-deep); }
-    .skill-col h3 .ico svg{ width:18px;height:18px; }
+    .skill-col h3 .ico{ width:34px; height:34px; border-radius:10px; background:var(--rose-mist); display:grid; place-items:center; color:var(--rose-deep); }
+    .skill-col h3 .ico svg{ width:18px; height:18px; }
     .skill{ margin-bottom:20px; }
-    .skill .top{ display:flex; justify-content:space-between; font-size:.92rem; font-weight:500; margin-bottom:8px; }
-    .skill .top em{ font-style:normal; color:var(--ink-soft); font-size:.82rem; }
+    .skill .top{ display:flex; justify-content:space-between; font-size:.92rem; font-weight:500; margin-bottom:8px; gap:12px; }
+    .skill .top em{ font-style:normal; color:var(--ink-soft); font-size:.82rem; white-space:nowrap; }
     .bar{ height:9px; background:var(--rose-mist); border-radius:999px; overflow:hidden; }
-    .bar > i{ display:block; height:100%; width:0; border-radius:999px;
-      background:linear-gradient(90deg, var(--rose), var(--rose-deep));
-      transition:width 1.3s var(--ease); }
+    .bar > i{ display:block; height:100%; width:0; border-radius:999px; background:linear-gradient(90deg,var(--rose),var(--rose-deep)); transition:width 1.3s var(--ease); }
 
-    /* =======================================================================
-       TIMELINE (educación + experiencia)
-       ======================================================================= */
+    /* ===== TIMELINE ===== */
+    .split2{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(34px,5vw,72px); }
+    .split2 .col > .eyebrow{ margin-bottom:18px; }
     .tl{ position:relative; margin-top:10px; padding-left:34px; }
-    .tl::before{ content:""; position:absolute; left:10px; top:6px; bottom:6px; width:2px; background:linear-gradient(var(--rose), var(--rose-soft)); }
+    .tl::before{ content:""; position:absolute; left:10px; top:6px; bottom:6px; width:2px; background:linear-gradient(var(--rose),var(--rose-soft)); }
     .tl-item{ position:relative; padding-bottom:38px; }
     .tl-item:last-child{ padding-bottom:0; }
     .tl-item::before{ content:""; position:absolute; left:-29px; top:4px; width:14px; height:14px; border-radius:50%; background:var(--white); border:3px solid var(--rose-deep); box-shadow:0 0 0 5px var(--rose-mist); }
     .tl-item .when{ font-size:.78rem; font-weight:600; letter-spacing:.06em; color:var(--rose-deep); text-transform:uppercase; }
-    .tl-item h4{ font-size:1.22rem; margin:6px 0 3px; font-family:var(--font-display); }
+    .tl-item h4{ font-size:1.22rem; margin:6px 0 3px; }
     .tl-item .org{ font-weight:600; color:var(--ink); font-size:.95rem; }
     .tl-item p{ color:var(--ink-soft); font-size:.95rem; margin-top:8px; }
     .tl-item ul.dots{ margin-top:10px; }
     .tl-item ul.dots li{ position:relative; padding-left:18px; font-size:.92rem; color:var(--ink-soft); margin-bottom:5px; }
     .tl-item ul.dots li::before{ content:""; position:absolute; left:0; top:9px; width:6px; height:6px; border-radius:50%; background:var(--rose); }
 
-    .split2{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(34px,5vw,72px); }
-    .split2 .col > .eyebrow{ margin-bottom:18px; }
+    /* ===== TARJETAS ===== */
+    .card-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:26px; }
+    .card{ background:var(--white); border:1px solid var(--line); border-radius:var(--r-md); padding:30px; box-shadow:var(--shadow-sm); position:relative; overflow:hidden; transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .4s; }
+    .card::after{ content:""; position:absolute; inset:0; background:linear-gradient(135deg,var(--rose-mist),transparent 60%); opacity:0; transition:opacity .4s; }
+    .card:hover{ transform:translateY(-8px); box-shadow:var(--shadow-lg); border-color:var(--rose); }
+    .card:hover::after{ opacity:1; }
+    .card > *{ position:relative; z-index:1; }
+    .card .pico{ width:50px; height:50px; border-radius:15px; background:linear-gradient(135deg,var(--rose-soft),var(--white)); display:grid; place-items:center; color:var(--rose-deep); margin-bottom:18px; border:1px solid var(--line); }
+    .card .pico svg{ width:24px; height:24px; }
+    .card h4{ font-size:1.3rem; margin-bottom:4px; }
+    .card .loc{ font-size:.8rem; color:var(--rose-deep); font-weight:600; letter-spacing:.04em; text-transform:uppercase; }
+    .card p{ color:var(--ink-soft); font-size:.96rem; margin:12px 0 18px; }
+    .card .tags{ display:flex; flex-wrap:wrap; gap:8px; }
+    .card .tags span{ font-size:.76rem; font-weight:500; color:var(--ink-soft); background:var(--rose-mist); padding:5px 12px; border-radius:999px; }
 
-    /* =======================================================================
-       PROYECTOS
-       ======================================================================= */
-    .proj-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:26px; }
-    .proj{
-      background:var(--white); border:1px solid var(--line); border-radius:var(--r-md);
-      padding:30px; box-shadow:var(--shadow-sm); position:relative; overflow:hidden;
-      transition:transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s;
-    }
-    .proj::after{ content:""; position:absolute; inset:0; background:linear-gradient(135deg, var(--rose-mist), transparent 60%); opacity:0; transition:opacity .4s; }
-    .proj:hover{ transform:translateY(-8px); box-shadow:var(--shadow-lg); border-color:var(--rose); }
-    .proj:hover::after{ opacity:1; }
-    .proj > *{ position:relative; z-index:1; }
-    .proj .pico{ width:50px; height:50px; border-radius:15px; background:linear-gradient(135deg,var(--rose-soft),var(--white)); display:grid; place-items:center; color:var(--rose-deep); margin-bottom:18px; border:1px solid var(--line); }
-    .proj .pico svg{ width:24px; height:24px; }
-    .proj h4{ font-size:1.3rem; margin-bottom:4px; }
-    .proj .loc{ font-size:.8rem; color:var(--rose-deep); font-weight:600; letter-spacing:.04em; text-transform:uppercase; }
-    .proj p{ color:var(--ink-soft); font-size:.96rem; margin:12px 0 18px; }
-    .proj .tags{ display:flex; flex-wrap:wrap; gap:8px; }
-    .proj .tags span{ font-size:.76rem; font-weight:500; color:var(--ink-soft); background:var(--rose-mist); padding:5px 12px; border-radius:999px; }
-
-    /* =======================================================================
-       TECNOLOGÍAS (grid de chips)
-       ======================================================================= */
+    /* ===== TECNOLOGIAS ===== */
     .tech-wrap{ background:var(--white); border:1px solid var(--line); border-radius:var(--r-lg); padding:clamp(28px,4vw,48px); box-shadow:var(--shadow-md); }
     .tech-cats{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(24px,3vw,40px); }
     .tech-cat h4{ font-family:var(--font-body); font-weight:700; font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; color:var(--rose-deep); margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid var(--line); }
     .tech-chips{ display:flex; flex-wrap:wrap; gap:9px; }
-    .tech-chips span{
-      font-size:.9rem; font-weight:500; color:var(--ink);
-      background:var(--blush); border:1px solid var(--line); padding:8px 15px; border-radius:12px;
-      transition:transform .25s var(--ease), background .25s, color .25s, border-color .25s;
-      cursor:default;
-    }
+    .tech-chips span{ font-size:.9rem; font-weight:500; color:var(--ink); background:var(--blush); border:1px solid var(--line); padding:8px 15px; border-radius:12px; transition:transform .25s var(--ease),background .25s,color .25s,border-color .25s; cursor:default; }
     .tech-chips span:hover{ transform:translateY(-3px); background:var(--rose-deep); color:#fff; border-color:var(--rose-deep); }
 
-    /* =======================================================================
-       CONTACTO + REDES
-       ======================================================================= */
-    .contact{ background:linear-gradient(160deg, var(--rose-mist), var(--blush)); }
+    /* ===== CONTACTO ===== */
+    .contact{ background:linear-gradient(160deg,var(--rose-mist),var(--blush)); }
     .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(34px,5vw,64px); align-items:center; }
     .contact h2{ font-size:clamp(2.1rem,5vw,3.4rem); color:var(--ink); }
-    .contact h2 em{ font-style:italic; color:var(--rose-deep); }
     .contact .lead{ color:var(--ink-soft); font-size:1.08rem; margin:16px 0 28px; max-width:460px; }
-
-    .contact-list{ display:flex; flex-direction:column; gap:14px; margin-bottom:30px; }
-    .contact-list a{ display:flex; align-items:center; gap:16px; background:var(--white); border:1px solid var(--line); border-radius:var(--r-sm); padding:16px 20px; box-shadow:var(--shadow-sm); transition:transform .3s var(--ease), box-shadow .3s; }
+    .contact-list{ display:flex; flex-direction:column; gap:14px; }
+    .contact-list a{ display:flex; align-items:center; gap:16px; background:var(--white); border:1px solid var(--line); border-radius:var(--r-sm); padding:16px 20px; box-shadow:var(--shadow-sm); transition:transform .3s var(--ease),box-shadow .3s; }
     .contact-list a:hover{ transform:translateX(6px); box-shadow:var(--shadow-md); }
-    .contact-list .ci{ width:46px;height:46px;flex:0 0 auto;border-radius:13px;background:var(--rose-mist);display:grid;place-items:center;color:var(--rose-deep); }
-    .contact-list .ci svg{ width:22px;height:22px; }
+    .contact-list .ci{ width:46px; height:46px; border-radius:13px; background:var(--rose-mist); display:grid; place-items:center; color:var(--rose-deep); }
+    .contact-list .ci svg{ width:22px; height:22px; }
     .contact-list b{ display:block; font-family:var(--font-body); font-weight:600; font-size:.96rem; }
-    .contact-list span{ font-size:.86rem; color:var(--ink-soft); }
-
-    /* Tarjeta de redes con iconos animados */
+    .contact-list span{ font-size:.86rem; color:var(--ink-soft); word-break:break-word; }
     .social-card{ background:var(--white); border:1px solid var(--line); border-radius:var(--r-lg); padding:clamp(28px,4vw,42px); box-shadow:var(--shadow-md); }
     .social-card h3{ font-size:1.45rem; margin-bottom:6px; }
     .social-card .sub{ font-size:.9rem; color:var(--ink-soft); margin-bottom:24px; }
     .social-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
-    .social-grid a{
-      aspect-ratio:1; display:grid; place-items:center; position:relative;
-      border-radius:18px; background:var(--blush); border:1px solid var(--line);
-      color:var(--ink-soft); overflow:hidden;
-      transition:transform .35s var(--ease), color .35s, border-color .35s;
-    }
+    .social-grid a{ aspect-ratio:1; display:grid; place-items:center; position:relative; border-radius:18px; background:var(--blush); border:1px solid var(--line); color:var(--ink-soft); overflow:hidden; transition:transform .35s var(--ease),color .35s,border-color .35s; }
     .social-grid a svg{ width:26px; height:26px; position:relative; z-index:1; transition:transform .35s var(--ease); }
     .social-grid a::before{ content:""; position:absolute; inset:0; transform:translateY(101%); transition:transform .4s var(--ease); }
     .social-grid a:hover{ color:#fff; border-color:transparent; transform:translateY(-5px); }
     .social-grid a:hover svg{ transform:scale(1.12); }
-    .social-grid a:hover::before{ transform:translateY(0); }
-    /* color de marca al pasar el cursor */
     .s-github:hover::before{ background:#24292e; }
     .s-linkedin:hover::before{ background:#0a66c2; }
-    .s-whatsapp:hover::before{ background:#25d366; }
+    .s-whatsapp:hover::before{ background:#1fae54; }
     .s-facebook:hover::before{ background:#1877f2; }
     .s-instagram:hover::before{ background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
     .s-tiktok:hover::before{ background:#010101; }
     .s-x:hover::before{ background:#000; }
     .s-mail:hover::before{ background:var(--rose-deep); }
 
-    /* =======================================================================
-       FOOTER
-       ======================================================================= */
-    footer.site{ background:var(--ink); color:#f3e7ec; padding-block:clamp(48px,7vw,72px) 28px; }
+    /* ===== FOOTER ===== */
+    .site-foot{ background:var(--ink); color:#f3e7ec; padding-block:clamp(48px,7vw,72px) 28px; }
     .foot-top{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:30px; align-items:flex-start; padding-bottom:36px; border-bottom:1px solid rgba(255,255,255,.12); }
     .foot-brand .mono{ font-family:var(--font-display); font-style:italic; font-size:2rem; }
     .foot-brand p{ color:#cdbcc4; font-size:.92rem; max-width:300px; margin-top:8px; }
     .foot-nav{ display:flex; gap:40px; flex-wrap:wrap; }
     .foot-nav .group h5{ font-family:var(--font-body); font-weight:700; font-size:.74rem; letter-spacing:.2em; text-transform:uppercase; color:var(--rose); margin-bottom:14px; }
-    .foot-nav .group a{ display:block; color:#cdbcc4; font-size:.92rem; margin-bottom:9px; transition:color .25s, padding-left .25s; }
+    .foot-nav .group a{ display:block; color:#cdbcc4; font-size:.92rem; margin-bottom:9px; transition:color .25s,padding-left .25s; }
     .foot-nav .group a:hover{ color:#fff; padding-left:5px; }
     .foot-bottom{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; padding-top:24px; font-size:.84rem; color:#b6a3ab; }
     .foot-bottom a{ color:var(--rose); }
 
-    /* =======================================================================
-       BOTÓN VOLVER ARRIBA
-       ======================================================================= */
-    .to-top{
-      position:fixed; right:24px; bottom:24px; z-index:90;
-      width:50px; height:50px; border-radius:50%; border:none; cursor:pointer;
-      background:linear-gradient(135deg, var(--rose-deep), var(--rose)); color:#fff;
-      display:grid; place-items:center; box-shadow:var(--shadow-md);
-      opacity:0; transform:translateY(20px) scale(.8); pointer-events:none;
-      transition:opacity .35s var(--ease), transform .35s var(--ease);
-    }
+    /* ===== BOTON ARRIBA ===== */
+    .to-top{ position:fixed; right:24px; bottom:24px; z-index:90; width:50px; height:50px; border-radius:50%; border:none; cursor:pointer; background:linear-gradient(135deg,var(--rose-deep),var(--rose)); color:#fff; display:grid; place-items:center; box-shadow:var(--shadow-md); opacity:0; transform:translateY(20px) scale(.8); pointer-events:none; transition:opacity .35s var(--ease),transform .35s var(--ease); }
     .to-top.show{ opacity:1; transform:translateY(0) scale(1); pointer-events:auto; }
     .to-top:hover{ transform:translateY(-4px) scale(1.05); }
     .to-top svg{ width:22px; height:22px; }
 
-    /* =======================================================================
-       SCROLL REVEAL
-       ======================================================================= */
-    .reveal{ opacity:0; transform:translateY(34px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
+    /* ===== REVEAL ===== */
+    .reveal{ opacity:0; transform:translateY(34px); transition:opacity .8s var(--ease),transform .8s var(--ease); }
     .reveal.in{ opacity:1; transform:none; }
-    .reveal.d1{ transition-delay:.08s; }
-    .reveal.d2{ transition-delay:.16s; }
-    .reveal.d3{ transition-delay:.24s; }
-    .reveal.d4{ transition-delay:.32s; }
+    .reveal.d1{ transition-delay:.08s; } .reveal.d2{ transition-delay:.16s; }
+    .reveal.d3{ transition-delay:.24s; } .reveal.d4{ transition-delay:.32s; }
 
-    /* =======================================================================
-       RESPONSIVE
-       ======================================================================= */
+    /* ===== RESPONSIVE ===== */
     @media (max-width:920px){
       .hero-grid{ grid-template-columns:1fr; text-align:center; }
-      .hero-tag{ }
       .hero .role{ margin-inline:auto; }
-      .hero-actions{ justify-content:center; }
-      .hero-stats{ justify-content:center; }
+      .hero-actions,.hero-stats{ justify-content:center; }
       .portrait{ order:-1; margin-bottom:18px; }
-      .about-grid,.skills-grid,.split2,.proj-grid,.tech-cats,.contact-grid{ grid-template-columns:1fr; }
+      .about-grid,.skills-grid,.split2,.card-grid,.tech-cats,.contact-grid{ grid-template-columns:1fr; }
       .tech-cats{ gap:30px; }
     }
-    @media (max-width:680px){
-      nav.menu{
-        position:fixed; inset:0 0 0 auto; width:min(78vw,320px);
-        background:var(--white); flex-direction:column; align-items:stretch; justify-content:flex-start;
-        padding:96px 24px 32px; gap:6px; box-shadow:var(--shadow-lg);
-        transform:translateX(100%); transition:transform .4s var(--ease); z-index:99;
-      }
-      nav.menu.open{ transform:translateX(0); }
-      nav.menu a{ padding:14px 16px; font-size:1rem; }
+    @media (max-width:860px){
+      .menu{ position:fixed; inset:0 0 0 auto; width:min(80vw,320px); background:var(--white); flex-direction:column; align-items:stretch; justify-content:flex-start; padding:96px 24px 32px; gap:6px; box-shadow:var(--shadow-lg); transform:translateX(100%); transition:transform .4s var(--ease); z-index:99; }
+      .menu.open{ transform:translateX(0); }
+      .menu a{ padding:14px 16px; font-size:1rem; }
       .burger{ display:flex; z-index:100; }
-      .social-grid{ grid-template-columns:repeat(4,1fr); }
-      .hero-stats .stat strong{ font-size:1.8rem; }
+      .hero-stats{ gap:22px; }
     }
-    @media (max-width:420px){
+    @media (max-width:430px){
       .social-grid{ grid-template-columns:repeat(3,1fr); }
       .portrait .badge{ left:0; }
       .portrait .chip{ right:0; }
+      .to-top{ right:16px; bottom:16px; }
     }
-
-    /* Accesibilidad: foco visible */
-    a:focus-visible, button:focus-visible{ outline:2px solid var(--rose-deep); outline-offset:3px; border-radius:6px; }
   </style>
 </head>
-
 <body>
-  <!-- ====================== FONDO DINÁMICO ====================== -->
+  <a class="skip-link" href="#inicio">Saltar al contenido</a>
+
   <div class="bg-canvas" aria-hidden="true">
-    <div class="blob b1"></div>
-    <div class="blob b2"></div>
-    <div class="blob b3"></div>
+    <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
   </div>
   <div class="bg-grain" aria-hidden="true"></div>
 
-  <!-- ====================== NAVBAR ====================== -->
   <header class="nav" id="nav">
     <div class="wrap nav-inner">
-      <a href="#inicio" class="brand" aria-label="Blancora — inicio">
-        <span class="mark">B</span>
-        <span class="name"><b>Blancora</b><span>Kenyi Escobedo</span></span>
+      <a href="#inicio" class="brand" aria-label="Blancora — ir al inicio">
+        <span class="mark" aria-hidden="true">B</span>
+        <span class="name"><b>Blancora</b><small>Kenyi Escobedo</small></span>
       </a>
-
-      <nav class="menu" id="menu">
+      <nav class="menu" id="menu" aria-label="Navegación principal">
         <a href="#sobre-mi">Sobre mí</a>
         <a href="#habilidades">Habilidades</a>
         <a href="#trayectoria">Trayectoria</a>
@@ -489,60 +327,52 @@
         <a href="#tecnologias">Tecnologías</a>
         <a href="#contacto" class="nav-cta">Contacto</a>
       </nav>
-
-      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true"></div>
 
-  <main>
-    <!-- ====================== HERO ====================== -->
-    <section class="hero wrap" id="inicio">
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero wrap" id="inicio" aria-labelledby="hero-title">
       <div class="hero-grid">
         <div class="hero-copy">
-          <span class="hero-tag reveal"><span class="dot"></span> Disponible para nuevas oportunidades</span>
-          <h1 class="reveal d1">Kenyi Blanca<span class="line2">Escobedo Arapa</span></h1>
-          <p class="role reveal d2">
-            Técnica en <b>Ingeniería de Software con Inteligencia Artificial</b> y estudiante de Estadística e Informática. Construyo soluciones web y doy soporte técnico con orden, compromiso y curiosidad por los datos.
-          </p>
-
+          <span class="hero-tag reveal"><span class="dot" aria-hidden="true"></span> Disponible para nuevas oportunidades</span>
+          <h1 id="hero-title" class="reveal d1">Kenyi Blanca <span class="line2">Escobedo Arapa</span></h1>
+          <p class="role reveal d2">Técnica en <b>Ingeniería de Software con Inteligencia Artificial</b> y estudiante de Estadística e Informática. Construyo soluciones web y doy soporte técnico con orden, compromiso y curiosidad por los datos.</p>
           <div class="hero-actions reveal d3">
-            <a href="#proyectos" class="btn btn-primary">
-              Ver proyectos
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            <a href="#proyectos" class="btn btn-primary">Ver proyectos
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
             <a href="#" id="cv-download" class="btn btn-ghost">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
               Descargar CV
             </a>
           </div>
-
           <div class="hero-stats reveal d4">
             <div class="stat"><strong>+4</strong><span>años formándose</span></div>
             <div class="stat"><strong>5</strong><span>proyectos clave</span></div>
-            <div class="stat"><strong>2</strong><span>áreas: software & datos</span></div>
+            <div class="stat"><strong>2</strong><span>áreas: software &amp; datos</span></div>
           </div>
         </div>
-
-        <!-- Retrato: monograma elegante de respaldo.
-             Para usar tu foto: reemplaza el <span class="mono"> por
-             <img src="TU_FOTO.jpg" alt="Kenyi Escobedo" style="width:100%;height:100%;object-fit:cover"> -->
-        <div class="portrait reveal d2">
+        <div class="portrait reveal d2" data-photo>
           <div class="ring" aria-hidden="true"></div>
           <div class="frame">
-            <span class="mono">KE</span>
+            <span class="mono" aria-hidden="true">KE</span>
+            <!-- <img src="foto-kenyi.jpg" alt="Retrato de Kenyi Blanca Escobedo Arapa" /> -->
           </div>
           <div class="chip">SENATI · UNAP</div>
           <div class="badge">
-            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
-            <div><b>Desarrollo Web</b><span>& Soporte técnico</span></div>
+            <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+            <div><b>Desarrollo Web</b><span>&amp; Soporte técnico</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ====================== MARQUEE ====================== -->
+    <!-- MARQUEE -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track">
         <span>Desarrollo Web</span><span>WordPress</span><span>Inteligencia Artificial</span><span>Soporte Técnico</span><span>Scrum</span><span>Estadística</span><span>Atención al Cliente</span>
@@ -550,87 +380,68 @@
       </div>
     </div>
 
-    <!-- ====================== SOBRE MÍ ====================== -->
-    <section class="pad wrap" id="sobre-mi">
+    <!-- SOBRE MI -->
+    <section class="pad wrap" id="sobre-mi" aria-labelledby="about-title">
       <div class="about-grid">
         <div class="about-text reveal">
           <span class="eyebrow">Sobre mí</span>
-          <h2 style="font-size:clamp(2rem,5vw,3rem);margin:.5rem 0 1.2rem;">Tecnología con <em style="font-style:italic;color:var(--rose-deep)">criterio</em> y cuidado</h2>
+          <h2 id="about-title">Tecnología con <span class="em">criterio</span> y cuidado</h2>
           <p>Soy una joven profesional de 20 años, <span class="hl">titulada en Ingeniería de Software con Inteligencia Artificial por el SENATI</span> y actualmente complemento mi formación estudiando Estadística e Informática en la Universidad Nacional del Altiplano.</p>
           <p>Cuento con experiencia en <span class="hl">desarrollo web, soporte técnico y atención al cliente</span>. Me considero responsable, organizada y con facilidad para aprender y adaptarme a nuevos entornos.</p>
-          <div class="about-quote">«Aporto compromiso, orden y trabajo en equipo a cada proyecto que asumo.»</div>
-          <div class="about-values">
-            <span>Responsable</span><span>Organizada</span><span>Adaptable</span><span>Resolutiva</span><span>Colaborativa</span>
-          </div>
+          <blockquote class="about-quote">«Aporto compromiso, orden y trabajo en equipo a cada proyecto que asumo.»</blockquote>
+          <div class="about-values"><span>Responsable</span><span>Organizada</span><span>Adaptable</span><span>Resolutiva</span><span>Colaborativa</span></div>
         </div>
-
-        <aside class="about-card reveal d2">
+        <aside class="about-card reveal d2" aria-label="Resumen del perfil">
           <h3>De un vistazo</h3>
           <p class="sub">Lo esencial de mi perfil profesional</p>
           <ul class="mini-list">
-            <li>
-              <span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
-              <span class="v"><b>Formación dual</b><span>Software + IA y Estadística e Informática</span></span>
-            </li>
-            <li>
-              <span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
-              <span class="v"><b>Desarrollo web</b><span>Aplicaciones y sitios institucionales</span></span>
-            </li>
-            <li>
-              <span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
-              <span class="v"><b>Soporte técnico</b><span>Mantenimiento y asistencia de equipos</span></span>
-            </li>
-            <li>
-              <span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
-              <span class="v"><b>Puno, Perú</b><span>Disponible para trabajo remoto e híbrido</span></span>
-            </li>
+            <li><span class="k" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span><span class="v"><b>Formación dual</b><span>Software + IA y Estadística e Informática</span></span></li>
+            <li><span class="k" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span><span class="v"><b>Desarrollo web</b><span>Aplicaciones y sitios institucionales</span></span></li>
+            <li><span class="k" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span><span class="v"><b>Soporte técnico</b><span>Mantenimiento y asistencia de equipos</span></span></li>
+            <li><span class="k" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span class="v"><b>Puno, Perú</b><span>Disponible para trabajo remoto e híbrido</span></span></li>
           </ul>
         </aside>
       </div>
     </section>
 
-    <!-- ====================== HABILIDADES ====================== -->
-    <section class="pad wrap" id="habilidades" style="background:var(--rose-mist);border-radius:var(--r-lg);">
+    <!-- HABILIDADES -->
+    <section class="pad wrap surface" id="habilidades" aria-labelledby="skills-title">
       <div class="section-head reveal">
         <span class="eyebrow">Habilidades técnicas</span>
-        <h2>Lo que sé <em>hacer</em></h2>
+        <h2 id="skills-title">Lo que sé <em>hacer</em></h2>
         <p>Una base equilibrada entre el desarrollo de software, el soporte técnico y la lectura de datos.</p>
       </div>
-
       <div class="skills-grid">
         <div class="skill-col reveal">
-          <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span> Desarrollo & Software</h3>
-          <div class="skill"><div class="top"><span>Desarrollo web (HTML, CSS, JS)</span><em>Avanzado</em></div><div class="bar"><i data-w="88"></i></div></div>
-          <div class="skill"><div class="top"><span>WordPress & gestión de sitios</span><em>Avanzado</em></div><div class="bar"><i data-w="85"></i></div></div>
-          <div class="skill"><div class="top"><span>Aplicaciones web de gestión</span><em>Sólido</em></div><div class="bar"><i data-w="78"></i></div></div>
-          <div class="skill"><div class="top"><span>Fundamentos de Inteligencia Artificial</span><em>Intermedio</em></div><div class="bar"><i data-w="70"></i></div></div>
+          <h3><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span> Desarrollo &amp; Software</h3>
+          <div class="skill"><div class="top"><span>Desarrollo web (HTML, CSS, JS)</span><em>Avanzado</em></div><div class="bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="Desarrollo web"><i data-w="88"></i></div></div>
+          <div class="skill"><div class="top"><span>WordPress &amp; gestión de sitios</span><em>Avanzado</em></div><div class="bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="WordPress"><i data-w="85"></i></div></div>
+          <div class="skill"><div class="top"><span>Aplicaciones web de gestión</span><em>Sólido</em></div><div class="bar" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" aria-label="Aplicaciones web"><i data-w="78"></i></div></div>
+          <div class="skill"><div class="top"><span>Fundamentos de Inteligencia Artificial</span><em>Intermedio</em></div><div class="bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="Fundamentos de IA"><i data-w="70"></i></div></div>
         </div>
-
         <div class="skill-col reveal d2">
-          <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg></span> Datos, Soporte & Gestión</h3>
-          <div class="skill"><div class="top"><span>Soporte técnico & mantenimiento</span><em>Avanzado</em></div><div class="bar"><i data-w="86"></i></div></div>
-          <div class="skill"><div class="top"><span>Atención al cliente</span><em>Avanzado</em></div><div class="bar"><i data-w="90"></i></div></div>
-          <div class="skill"><div class="top"><span>Metodología Scrum</span><em>Sólido</em></div><div class="bar"><i data-w="75"></i></div></div>
-          <div class="skill"><div class="top"><span>Análisis estadístico e informática</span><em>En desarrollo</em></div><div class="bar"><i data-w="68"></i></div></div>
+          <h3><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg></span> Datos, Soporte &amp; Gestión</h3>
+          <div class="skill"><div class="top"><span>Soporte técnico &amp; mantenimiento</span><em>Avanzado</em></div><div class="bar" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" aria-label="Soporte técnico"><i data-w="86"></i></div></div>
+          <div class="skill"><div class="top"><span>Atención al cliente</span><em>Avanzado</em></div><div class="bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Atención al cliente"><i data-w="90"></i></div></div>
+          <div class="skill"><div class="top"><span>Metodología Scrum</span><em>Sólido</em></div><div class="bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Scrum"><i data-w="75"></i></div></div>
+          <div class="skill"><div class="top"><span>Análisis estadístico e informática</span><em>En desarrollo</em></div><div class="bar" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" aria-label="Análisis estadístico"><i data-w="68"></i></div></div>
         </div>
       </div>
     </section>
 
-    <!-- ====================== TRAYECTORIA (educación + experiencia) ====================== -->
-    <section class="pad wrap" id="trayectoria">
+    <!-- TRAYECTORIA -->
+    <section class="pad wrap" id="trayectoria" aria-labelledby="tray-title">
       <div class="section-head reveal">
         <span class="eyebrow">Trayectoria profesional</span>
-        <h2>Mi línea de <em>tiempo</em></h2>
+        <h2 id="tray-title">Mi línea de <em>tiempo</em></h2>
         <p>Formación y experiencia que han construido mi perfil, de lo académico a lo laboral.</p>
       </div>
-
       <div class="split2">
-        <!-- Experiencia -->
         <div class="col reveal">
           <span class="eyebrow">Experiencia</span>
           <div class="tl">
             <div class="tl-item">
-              <div class="when">Dic 2024 – Mar 2025</div>
+              <p class="when">Dic 2024 – Mar 2025</p>
               <h4>Secretaria / Atención al cliente</h4>
               <div class="org">Centro Médico Arcángel S.A.C.</div>
               <p>Centro médico autorizado para la evaluación de conductores y emisión de certificados de salud.</p>
@@ -642,26 +453,24 @@
               </ul>
             </div>
             <div class="tl-item">
-              <div class="when">2025 – Actualidad</div>
+              <p class="when">2025 – Actualidad</p>
               <h4>Miembro colaborador</h4>
               <div class="org">ScorpionStudentHub — FINESI</div>
               <p>Participación activa en proyectos de software, telecomunicaciones y capacitaciones tecnológicas para jóvenes. Certificada como miembro colaborador del equipo.</p>
             </div>
           </div>
         </div>
-
-        <!-- Educación -->
         <div class="col reveal d2">
           <span class="eyebrow">Educación</span>
           <div class="tl">
             <div class="tl-item">
-              <div class="when">2023 – Actualidad</div>
+              <p class="when">2023 – Actualidad</p>
               <h4>Estadística e Informática</h4>
               <div class="org">Universidad Nacional del Altiplano — Puno</div>
               <p>Formación universitaria en curso, complementando mi perfil técnico con análisis de datos e informática.</p>
             </div>
             <div class="tl-item">
-              <div class="when">2021 – 2024</div>
+              <p class="when">2021 – 2024</p>
               <h4>Ingeniería de Software con IA</h4>
               <div class="org">SENATI — Puno</div>
               <p>Título Técnico Profesional. Desarrollo de software, fundamentos de inteligencia artificial y prácticas profesionales en empresas del rubro.</p>
@@ -671,23 +480,23 @@
       </div>
     </section>
 
-    <!-- ====================== CERTIFICACIONES ====================== -->
-    <section class="pad wrap" id="certificaciones" style="background:var(--rose-mist);border-radius:var(--r-lg);">
+    <!-- CERTIFICACIONES -->
+    <section class="pad wrap surface" id="certificaciones" aria-labelledby="cert-title">
       <div class="section-head reveal">
-        <span class="eyebrow">Certificaciones & reconocimientos</span>
-        <h2>Avales de mi <em>formación</em></h2>
+        <span class="eyebrow">Certificaciones &amp; reconocimientos</span>
+        <h2 id="cert-title">Avales de mi <em>formación</em></h2>
         <p>Titulación y certificaciones que respaldan mi trayectoria técnica y colaborativa.</p>
       </div>
-      <div class="proj-grid">
-        <article class="proj reveal">
-          <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+      <div class="card-grid">
+        <article class="card reveal">
+          <div class="pico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></div>
           <span class="loc">SENATI · 2024</span>
           <h4>Título Técnico Profesional</h4>
           <p>Ingeniería de Software con Inteligencia Artificial, con proyecto de titulación de aplicación web.</p>
           <div class="tags"><span>Titulación oficial</span><span>Software</span><span>IA</span></div>
         </article>
-        <article class="proj reveal d2">
-          <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <article class="card reveal d2">
+          <div class="pico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
           <span class="loc">FINESI · 2025</span>
           <h4>Miembro ScorpionStudentHub</h4>
           <p>Certificada como miembro colaborador en proyectos de software, telecomunicaciones y capacitaciones.</p>
@@ -696,41 +505,37 @@
       </div>
     </section>
 
-    <!-- ====================== PROYECTOS ====================== -->
-    <section class="pad wrap" id="proyectos">
+    <!-- PROYECTOS -->
+    <section class="pad wrap" id="proyectos" aria-labelledby="proj-title">
       <div class="section-head reveal">
         <span class="eyebrow">Proyectos destacados</span>
-        <h2>Trabajo que he <em>construido</em></h2>
+        <h2 id="proj-title">Trabajo que he <em>construido</em></h2>
         <p>Prácticas profesionales y proyectos reales donde apliqué desarrollo, soporte y gestión.</p>
       </div>
-
-      <div class="proj-grid">
-        <article class="proj reveal">
-          <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <div class="card-grid">
+        <article class="card reveal">
+          <div class="pico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></div>
           <span class="loc">Óptica Puno</span>
           <h4>VeoVeo — Gestión de óptica</h4>
           <p>Aplicación web para la gestión integral de una óptica, desarrollada como proyecto de titulación en SENATI.</p>
           <div class="tags"><span>Aplicación web</span><span>Desarrollo</span><span>Proyecto de titulación</span></div>
         </article>
-
-        <article class="proj reveal d2">
-          <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <article class="card reveal d2">
+          <div class="pico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
           <span class="loc">UNAP — Oficina TI</span>
           <h4>Web institucional WordPress</h4>
           <p>Soporte técnico y creación de una página web institucional con WordPress en la Oficina de Tecnologías de la Información.</p>
           <div class="tags"><span>WordPress</span><span>Soporte técnico</span></div>
         </article>
-
-        <article class="proj reveal d3">
-          <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <article class="card reveal d3">
+          <div class="pico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
           <span class="loc">Perusis</span>
           <h4>Soporte en tienda de computación</h4>
           <p>Atención al cliente, soporte técnico y mantenimiento básico de equipos en una tienda de computación.</p>
           <div class="tags"><span>Mantenimiento</span><span>Atención al cliente</span></div>
         </article>
-
-        <article class="proj reveal d4">
-          <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <article class="card reveal d4">
+          <div class="pico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
           <span class="loc">SENATI</span>
           <h4>Supervisión Scrum de software</h4>
           <p>Supervisión de proyectos de software bajo metodología Scrum: coordinación y control de las tareas del equipo.</p>
@@ -739,91 +544,70 @@
       </div>
     </section>
 
-    <!-- ====================== TECNOLOGÍAS ====================== -->
-    <section class="pad wrap" id="tecnologias">
+    <!-- TECNOLOGIAS -->
+    <section class="pad wrap" id="tecnologias" aria-labelledby="tech-title">
       <div class="section-head reveal">
         <span class="eyebrow">Tecnologías dominadas</span>
-        <h2>Mi caja de <em>herramientas</em></h2>
+        <h2 id="tech-title">Mi caja de <em>herramientas</em></h2>
         <p>El conjunto de tecnologías y metodologías con las que trabajo a diario.</p>
       </div>
-
       <div class="tech-wrap reveal">
         <div class="tech-cats">
-          <div class="tech-cat">
-            <h4>Desarrollo Web</h4>
-            <div class="tech-chips">
-              <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>WordPress</span><span>Diseño responsive</span><span>UI básica</span>
-            </div>
-          </div>
-          <div class="tech-cat">
-            <h4>Datos & IA</h4>
-            <div class="tech-chips">
-              <span>Fundamentos de IA</span><span>Estadística</span><span>Análisis de datos</span><span>Informática</span><span>Excel</span>
-            </div>
-          </div>
-          <div class="tech-cat">
-            <h4>Soporte & Gestión</h4>
-            <div class="tech-chips">
-              <span>Soporte técnico</span><span>Mantenimiento de equipos</span><span>Scrum</span><span>Gestión de tareas</span><span>Atención al cliente</span><span>Ofimática</span>
-            </div>
-          </div>
+          <div class="tech-cat"><h4>Desarrollo Web</h4><div class="tech-chips"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>WordPress</span><span>Diseño responsive</span><span>UI básica</span></div></div>
+          <div class="tech-cat"><h4>Datos &amp; IA</h4><div class="tech-chips"><span>Fundamentos de IA</span><span>Estadística</span><span>Análisis de datos</span><span>Informática</span><span>Excel</span></div></div>
+          <div class="tech-cat"><h4>Soporte &amp; Gestión</h4><div class="tech-chips"><span>Soporte técnico</span><span>Mantenimiento de equipos</span><span>Scrum</span><span>Gestión de tareas</span><span>Atención al cliente</span><span>Ofimática</span></div></div>
         </div>
       </div>
     </section>
 
-    <!-- ====================== CONTACTO + REDES ====================== -->
-    <section class="contact pad" id="contacto">
+    <!-- CONTACTO -->
+    <section class="contact pad" id="contacto" aria-labelledby="contact-title">
       <div class="wrap contact-grid">
         <div class="reveal">
           <span class="eyebrow">Contacto</span>
-          <h2>Construyamos algo <em>juntos</em></h2>
+          <h2 id="contact-title">Construyamos algo <em>juntos</em></h2>
           <p class="lead">¿Tienes una oportunidad laboral, un proyecto o una colaboración en mente? Estoy abierta a conversar. Escríbeme por el canal que prefieras.</p>
-
           <div class="contact-list">
-            <!-- Estos enlaces se generan desde DATOS EDITABLES (más abajo) -->
             <a id="lnk-phone" href="#">
-              <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.93.36 1.85.7 2.73a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.35-1.35a2 2 0 0 1 2.11-.45c.88.34 1.8.57 2.73.7A2 2 0 0 1 22 16.92z"/></svg></span>
+              <span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.93.36 1.85.7 2.73a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.35-1.35a2 2 0 0 1 2.11-.45c.88.34 1.8.57 2.73.7A2 2 0 0 1 22 16.92z"/></svg></span>
               <div><b>Celular</b><span>944 396 740</span></div>
             </a>
             <a id="lnk-mail" href="#">
-              <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></span>
+              <span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></span>
               <div><b>Correo electrónico</b><span id="mail-label">tu-correo@ejemplo.com</span></div>
             </a>
-            <a id="lnk-loc" href="#">
-              <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <a id="lnk-loc" href="#" target="_blank" rel="noopener">
+              <span class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
               <div><b>Ubicación</b><span>Jr. Guillermo Cruz 515, Alto Puno — Puno, Perú</span></div>
             </a>
           </div>
         </div>
-
         <div class="social-card reveal d2">
           <h3>Sígueme en redes</h3>
           <p class="sub">Conecta conmigo en tus plataformas favoritas.</p>
           <div class="social-grid" id="social-grid">
-            <!-- Los enlaces se inyectan desde DATOS EDITABLES con JavaScript -->
-            <a class="s-github"    data-net="github"    href="#" aria-label="GitHub" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12 11.5 11.5 0 0 0 8.36 23c.6.11.82-.26.82-.58v-2c-3.34.73-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.1-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.4 1.24-3.24-.12-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.24a11.4 11.4 0 0 1 6 0c2.3-1.56 3.3-1.24 3.3-1.24.66 1.66.24 2.88.12 3.18.77.84 1.24 1.92 1.24 3.24 0 4.63-2.8 5.65-5.48 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg></a>
-            <a class="s-linkedin"  data-net="linkedin"  href="#" aria-label="LinkedIn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
-            <a class="s-whatsapp"  data-net="whatsapp"  href="#" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.06 24l1.69-6.16a11.86 11.86 0 0 1-1.59-5.95C.16 5.34 5.5 0 12.06 0a11.82 11.82 0 0 1 8.41 3.49 11.82 11.82 0 0 1 3.48 8.42c0 6.56-5.34 11.9-11.9 11.9a11.9 11.9 0 0 1-5.68-1.45L.06 24zM6.6 20.2c1.68.99 3.28 1.59 5.45 1.59 5.45 0 9.9-4.43 9.9-9.88a9.8 9.8 0 0 0-2.9-7 9.8 9.8 0 0 0-6.99-2.9c-5.46 0-9.9 4.44-9.9 9.89a9.83 9.83 0 0 0 1.51 5.26l.24.38-1 3.65 3.69-.98zm11.4-5.55c-.07-.12-.27-.2-.57-.35-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41z"/></svg></a>
-            <a class="s-facebook"  data-net="facebook"  href="#" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a>
-            <a class="s-instagram" data-net="instagram" href="#" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.78.3-1.45.71-2.1 1.37C1.38 2.65.97 3.31.67 4.1.37 4.86.17 5.74.11 7.01.05 8.29.04 8.7.04 11.96c0 3.26.01 3.67.07 4.95.06 1.27.26 2.15.56 2.91.3.78.71 1.45 1.37 2.1.65.66 1.32 1.07 2.1 1.37.76.3 1.64.5 2.91.56 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.78-.3 1.45-.71 2.1-1.37.66-.65 1.07-1.32 1.37-2.1.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.78-.71-1.45-1.37-2.1A5.86 5.86 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></a>
-            <a class="s-tiktok"    data-net="tiktok"    href="#" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.3 0 .59.04.86.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z"/></svg></a>
-            <a class="s-x"         data-net="x"         href="#" aria-label="X (Twitter)" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.46l8.6-9.83L0 1.15h7.6l5.24 6.93 6.06-6.93zm-1.3 19.5h2.04L6.49 3.24H4.3L17.6 20.65z"/></svg></a>
-            <a class="s-mail"      data-net="mail"      href="#" aria-label="Correo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></a>
+            <a class="s-github" data-net="github" href="#" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12 11.5 11.5 0 0 0 8.36 23c.6.11.82-.26.82-.58v-2c-3.34.73-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.1-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.84 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.96 0-1.32.47-2.4 1.24-3.24-.12-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.24a11.4 11.4 0 0 1 6 0c2.3-1.56 3.3-1.24 3.3-1.24.66 1.66.24 2.88.12 3.18.77.84 1.24 1.92 1.24 3.24 0 4.63-2.8 5.65-5.48 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg></a>
+            <a class="s-linkedin" data-net="linkedin" href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+            <a class="s-whatsapp" data-net="whatsapp" href="#" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.06 24l1.69-6.16a11.86 11.86 0 0 1-1.59-5.95C.16 5.34 5.5 0 12.06 0a11.82 11.82 0 0 1 8.41 3.49 11.82 11.82 0 0 1 3.48 8.42c0 6.56-5.34 11.9-11.9 11.9a11.9 11.9 0 0 1-5.68-1.45L.06 24zM6.6 20.2c1.68.99 3.28 1.59 5.45 1.59 5.45 0 9.9-4.43 9.9-9.88a9.8 9.8 0 0 0-2.9-7 9.8 9.8 0 0 0-6.99-2.9c-5.46 0-9.9 4.44-9.9 9.89a9.83 9.83 0 0 0 1.51 5.26l.24.38-1 3.65 3.69-.98zm11.4-5.55c-.07-.12-.27-.2-.57-.35-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41z"/></svg></a>
+            <a class="s-facebook" data-net="facebook" href="#" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a>
+            <a class="s-instagram" data-net="instagram" href="#" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.78.3-1.45.71-2.1 1.37C1.38 2.65.97 3.31.67 4.1.37 4.86.17 5.74.11 7.01.05 8.29.04 8.7.04 11.96c0 3.26.01 3.67.07 4.95.06 1.27.26 2.15.56 2.91.3.78.71 1.45 1.37 2.1.65.66 1.32 1.07 2.1 1.37.76.3 1.64.5 2.91.56 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.78-.3 1.45-.71 2.1-1.37.66-.65 1.07-1.32 1.37-2.1.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.78-.71-1.45-1.37-2.1A5.86 5.86 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></a>
+            <a class="s-tiktok" data-net="tiktok" href="#" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.3 0 .59.04.86.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z"/></svg></a>
+            <a class="s-x" data-net="x" href="#" aria-label="X (Twitter)" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.46l8.6-9.83L0 1.15h7.6l5.24 6.93 6.06-6.93zm-1.3 19.5h2.04L6.49 3.24H4.3L17.6 20.65z"/></svg></a>
+            <a class="s-mail" data-net="mail" href="#" aria-label="Enviar correo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ====================== FOOTER ====================== -->
-  <footer class="site">
+  <footer class="site-foot">
     <div class="wrap">
       <div class="foot-top">
         <div class="foot-brand">
           <div class="mono">Blancora</div>
           <p>Kenyi Blanca Escobedo Arapa — tecnología, software e inteligencia de datos con identidad propia.</p>
         </div>
-        <div class="foot-nav">
+        <nav class="foot-nav" aria-label="Navegación del pie">
           <div class="group">
             <h5>Explorar</h5>
             <a href="#sobre-mi">Sobre mí</a>
@@ -834,153 +618,142 @@
           <div class="group">
             <h5>Conectar</h5>
             <a id="foot-mail" href="#">Correo</a>
-            <a id="foot-wa" href="#">WhatsApp</a>
-            <a id="foot-li" href="#">LinkedIn</a>
-            <a id="foot-gh" href="#">GitHub</a>
+            <a id="foot-wa" href="#" target="_blank" rel="noopener">WhatsApp</a>
+            <a id="foot-li" href="#" target="_blank" rel="noopener">LinkedIn</a>
+            <a id="foot-gh" href="#" target="_blank" rel="noopener">GitHub</a>
           </div>
-        </div>
+        </nav>
       </div>
       <div class="foot-bottom">
         <span>© <span id="year"></span> Kenyi Blanca Escobedo Arapa · Marca personal <b>Blancora</b>.</span>
-        <span>Diseñado y desarrollado con <a href="#inicio">HTML, CSS & JavaScript</a>.</span>
+        <span>Diseñado y desarrollado con HTML, CSS &amp; JavaScript.</span>
       </div>
     </div>
   </footer>
 
-  <!-- Botón volver arriba -->
   <button class="to-top" id="toTop" aria-label="Volver arriba">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
   </button>
 
   <script>
-  /* ===========================================================================
-     <!-- DATOS EDITABLES -->
-     Cambia aquí tus enlaces reales UNA sola vez. El resto del sitio se actualiza solo.
-     · Para WhatsApp usa el formato internacional sin "+", ej: 51944396740
-     · Si aún no tienes alguna red, deja "#" y el icono simplemente no llevará a ningún lado.
-     =========================================================================== */
+  "use strict";
+  /* ===== DATOS EDITABLES (cambia aqui tus enlaces reales una sola vez) =====
+     WhatsApp: formato internacional sin "+", ej. 51944396740
+     Si aun no tienes una red, deja "" y su icono se ocultara. */
   const DATOS = {
-    correo:   "kenyi.escobedo@ejemplo.com",          // ← tu correo real
-    telefono: "51944396740",                          // ← celular con código país (Perú = 51)
+    correo:    "kenyi.escobedo@ejemplo.com",
+    telefono:  "51944396740",
+    ubicacion: "Alto Puno, Puno, Perú",
     redes: {
       github:    "https://github.com/tu-usuario",
       linkedin:  "https://www.linkedin.com/in/tu-usuario",
-      whatsapp:  "https://wa.me/51944396740",          // ← tu WhatsApp
+      whatsapp:  "https://wa.me/51944396740",
       facebook:  "https://www.facebook.com/tu-usuario",
       instagram: "https://www.instagram.com/tu-usuario",
       tiktok:    "https://www.tiktok.com/@tu-usuario",
       x:         "https://x.com/tu-usuario"
     },
-    // Archivo del CV que subas al repositorio (mismo nivel que index.html)
     cvArchivo: "CV-Kenyi-Escobedo.pdf"
   };
 
-  /* ---------- Aplicar DATOS a los enlaces del sitio ---------- */
+  const $  = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Aplicar DATOS (sin target en mailto/tel) */
   (function aplicarDatos(){
-    const set = (id, href, label) => {
-      const el = document.getElementById(id);
-      if(!el) return;
-      el.setAttribute("href", href);
-      if(label){ const s = el.querySelector("span"); if(s) s.textContent = label; }
-    };
-
-    // Contacto
-    set("lnk-mail", "mailto:" + DATOS.correo);
-    document.getElementById("mail-label").textContent = DATOS.correo;
-    set("lnk-phone", "tel:+" + DATOS.telefono);
-    set("lnk-loc", "https://maps.google.com/?q=Alto+Puno+Puno+Peru");
-
-    // Iconos de redes
-    const mapa = {
-      github: DATOS.redes.github, linkedin: DATOS.redes.linkedin,
-      whatsapp: DATOS.redes.whatsapp, facebook: DATOS.redes.facebook,
-      instagram: DATOS.redes.instagram, tiktok: DATOS.redes.tiktok,
-      x: DATOS.redes.x, mail: "mailto:" + DATOS.correo
-    };
-    document.querySelectorAll("#social-grid a").forEach(a=>{
-      const net = a.getAttribute("data-net");
-      if(mapa[net]) a.setAttribute("href", mapa[net]);
+    const setHref = (id, href) => { const el = $("#" + id); if (el && href) el.href = href; };
+    if (DATOS.correo){
+      setHref("lnk-mail", "mailto:" + DATOS.correo);
+      setHref("foot-mail", "mailto:" + DATOS.correo);
+      const lbl = $("#mail-label"); if (lbl) lbl.textContent = DATOS.correo;
+    }
+    if (DATOS.telefono) setHref("lnk-phone", "tel:+" + DATOS.telefono);
+    setHref("lnk-loc", "https://maps.google.com/?q=" + encodeURIComponent(DATOS.ubicacion || "Puno, Perú"));
+    const mapa = { ...DATOS.redes, mail: DATOS.correo ? "mailto:" + DATOS.correo : "" };
+    $$("#social-grid a").forEach(a => {
+      const url = mapa[a.dataset.net];
+      if (url){ a.href = url; } else { a.style.display = "none"; }
     });
-
-    // Enlaces del footer
-    set("foot-mail", "mailto:" + DATOS.correo);
-    set("foot-wa", DATOS.redes.whatsapp);
-    set("foot-li", DATOS.redes.linkedin);
-    set("foot-gh", DATOS.redes.github);
-
-    // Descargar CV
-    const cv = document.getElementById("cv-download");
-    cv.setAttribute("href", DATOS.cvArchivo);
-    cv.setAttribute("download", "");
+    setHref("foot-wa", DATOS.redes.whatsapp);
+    setHref("foot-li", DATOS.redes.linkedin);
+    setHref("foot-gh", DATOS.redes.github);
+    const cv = $("#cv-download");
+    if (cv && DATOS.cvArchivo){ cv.href = DATOS.cvArchivo; cv.setAttribute("download", ""); }
   })();
 
-  /* ---------- Año dinámico en el footer ---------- */
-  document.getElementById("year").textContent = new Date().getFullYear();
+  /* Año dinamico */
+  $("#year").textContent = new Date().getFullYear();
 
-  /* ---------- Navbar con fondo al hacer scroll ---------- */
-  const nav = document.getElementById("nav");
-  const onScrollNav = () => nav.classList.toggle("scrolled", window.scrollY > 30);
-  onScrollNav();
-  window.addEventListener("scroll", onScrollNav, { passive:true });
+  /* Accesibilidad: cada barra anuncia su nivel textual ("Avanzado"), no solo el numero */
+  $$(".skill").forEach(s => {
+    const bar = s.querySelector(".bar");
+    const nivel = s.querySelector(".top em");
+    if (bar && nivel) bar.setAttribute("aria-valuetext", nivel.textContent.trim());
+  });
 
-  /* ---------- Menú móvil ---------- */
-  const burger = document.getElementById("burger");
-  const menu = document.getElementById("menu");
-  const toggleMenu = (open) => {
-    const willOpen = open ?? !menu.classList.contains("open");
-    menu.classList.toggle("open", willOpen);
-    burger.classList.toggle("open", willOpen);
-    burger.setAttribute("aria-expanded", willOpen);
-  };
-  burger.addEventListener("click", () => toggleMenu());
-  menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => toggleMenu(false)));
+  /* Scroll: navbar + boton arriba + scrollspy en UN listener con rAF.
+     Cacheamos nav-h y los offset de seccion (solo se recalculan al redimensionar). */
+  const nav = $("#nav"), toTop = $("#toTop");
+  const linksMenu = $$(".menu a"), secciones = $$("main section[id]");
+  const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--nav-h")) || 76;
+  let offsets = [];
+  function medir(){ offsets = secciones.map(s => ({ id:s.id, top:s.offsetTop })); }
+  medir();
 
-  /* ---------- Botón volver arriba ---------- */
-  const toTop = document.getElementById("toTop");
+  let ticking = false;
+  function onScroll(){
+    const y = window.scrollY;
+    nav.classList.toggle("scrolled", y > 30);
+    toTop.classList.toggle("show", y > 600);
+    const offset = y + navH + 40;
+    let actual = offsets.length ? offsets[0].id : "";
+    for (const s of offsets){ if (s.top <= offset) actual = s.id; }
+    linksMenu.forEach(l => l.classList.toggle("active", l.getAttribute("href") === "#" + actual));
+    ticking = false;
+  }
   window.addEventListener("scroll", () => {
-    toTop.classList.toggle("show", window.scrollY > 600);
+    if (!ticking){ requestAnimationFrame(onScroll); ticking = true; }
   }, { passive:true });
-  toTop.addEventListener("click", () => window.scrollTo({ top:0, behavior:"smooth" }));
+  window.addEventListener("resize", () => { medir(); onScroll(); }, { passive:true });
+  window.addEventListener("load", medir);
+  onScroll();
 
-  /* ---------- Scroll reveal con IntersectionObserver ---------- */
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if(e.isIntersecting){
-        e.target.classList.add("in");
-        io.unobserve(e.target); // anima una sola vez
-      }
-    });
-  }, { threshold:0.14, rootMargin:"0px 0px -8% 0px" });
-  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  toTop.addEventListener("click", () =>
+    window.scrollTo({ top:0, behavior: prefersReduced ? "auto" : "smooth" })
+  );
 
-  /* ---------- Animar barras de habilidad cuando entran en vista ---------- */
-  const skillIO = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if(e.isIntersecting){
-        const bar = e.target;
-        bar.style.width = bar.getAttribute("data-w") + "%";
-        skillIO.unobserve(bar);
-      }
-    });
-  }, { threshold:0.5 });
-  document.querySelectorAll(".bar > i").forEach(b => skillIO.observe(b));
+  /* Menu movil: overlay, foco y tecla Esc */
+  const burger = $("#burger"), menu = $("#menu"), overlay = $("#menuOverlay");
+  function setMenu(open){
+    menu.classList.toggle("open", open);
+    burger.classList.toggle("open", open);
+    overlay.classList.toggle("show", open);
+    burger.setAttribute("aria-expanded", String(open));
+    document.body.style.overflow = open ? "hidden" : "";
+    if (open){ const first = menu.querySelector("a"); if (first) first.focus(); }
+  }
+  burger.addEventListener("click", () => setMenu(!menu.classList.contains("open")));
+  overlay.addEventListener("click", () => setMenu(false));
+  menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setMenu(false)));
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && menu.classList.contains("open")){ setMenu(false); burger.focus(); }
+  });
 
-  /* ---------- Resaltar enlace activo del menú según sección ---------- */
-  const secciones = [...document.querySelectorAll("main section[id]")];
-  const linksMenu = [...document.querySelectorAll("nav.menu a")];
-  const navIO = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if(e.isIntersecting){
-        const id = e.target.getAttribute("id");
-        linksMenu.forEach(l => {
-          const activo = l.getAttribute("href") === "#" + id;
-          l.style.color = activo ? "var(--rose-deep)" : "";
-          l.style.background = activo && !l.classList.contains("nav-cta") ? "var(--rose-mist)" : "";
-        });
-      }
-    });
-  }, { threshold:0.5 });
-  secciones.forEach(s => navIO.observe(s));
+  /* Scroll reveal + barras (una sola vez; respeta reduced-motion) */
+  if (prefersReduced){
+    $$(".reveal").forEach(el => el.classList.add("in"));
+    $$(".bar > i").forEach(b => b.style.width = b.dataset.w + "%");
+  } else {
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); obs.unobserve(e.target); } });
+    }, { threshold:0.14, rootMargin:"0px 0px -8% 0px" });
+    $$(".reveal").forEach(el => io.observe(el));
+    const skillIO = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => { if (e.isIntersecting){ e.target.style.width = e.target.dataset.w + "%"; obs.unobserve(e.target); } });
+    }, { threshold:0.5 });
+    $$(".bar > i").forEach(b => skillIO.observe(b));
+  }
   </script>
 </body>
 </html>
