@@ -1,249 +1,932 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M.Sc. Romel Percy Melgarejo Bolivar | Perfil Profesional y Académico</title>
+    <title>Blancora | Professional Portfolio</title>
     <style>
+        /* Base Variables & Reset */
         :root {
-            --primary: #1e3a8a;
-            --secondary: #0284c7;
-            --dark: #1f2937;
-            --light: #f3f4f6;
-            --white: #ffffff;
-            --accent: #f59e0b;
+            --bg-main: #0a0e17;
+            --bg-secondary: #111827;
+            --bg-card: #1f2937;
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --accent-primary: #00f0ff;
+            --accent-secondary: #7000ff;
+            --gradient-text: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--dark);
-            background-color: var(--light);
+            background-color: var(--bg-main);
+            color: var(--text-primary);
             line-height: 1.6;
+            overflow-x: hidden;
         }
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--white);
-            padding: 4rem 1rem;
-            text-align: center;
+
+        html {
+            scroll-behavior: smooth;
         }
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+
+        /* Typography & Utility */
+        h1, h2, h3 {
+            color: var(--text-primary);
+            line-height: 1.2;
         }
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .container {
-            max-width: 950px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-        section {
-            background-color: var(--white);
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
+
         h2 {
-            color: var(--primary);
-            border-bottom: 2px solid var(--secondary);
-            padding-bottom: 0.4rem;
-            margin-bottom: 1.2rem;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        p {
-            margin-bottom: 1rem;
-            text-align: justify;
-        }
-        ul {
-            list-style-type: none;
-        }
-        li {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             position: relative;
+            display: inline-block;
         }
-        li::before {
-            content: "▹";
+
+        h2::after {
+            content: '';
             position: absolute;
             left: 0;
-            color: var(--secondary);
-            font-weight: bold;
-            font-size: 1.1rem;
+            bottom: -10px;
+            width: 50%;
+            height: 3px;
+            background: var(--gradient-text);
+            border-radius: 2px;
         }
-        .badge {
-            background-color: var(--light);
-            color: var(--primary);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 0.3rem;
+
+        .highlight {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .project-title {
-            font-weight: bold;
-            color: var(--dark);
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
-        .btn-verify {
-            display: inline-flex;
+
+        section {
+            padding: 6rem 0;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 23, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 0.5rem 1rem;
+            height: 70px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
             text-decoration: none;
-            border-radius: 5px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin-top: 0.5rem;
-            transition: background-color 0.3s;
+            color: var(--text-primary);
         }
-        .btn-verify:hover {
-            background-color: var(--secondary);
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
         }
-        .grid-2 {
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: radial-gradient(circle at 80% 20%, rgba(112, 0, 255, 0.15) 0%, transparent 40%),
+                        radial-gradient(circle at 20% 80%, rgba(0, 240, 255, 0.1) 0%, transparent 40%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .hero-greeting {
+            color: var(--accent-primary);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+            letter-spacing: 2px;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: transparent;
+            color: var(--accent-primary);
+            border: 2px solid var(--accent-primary);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 240, 255, 0.1);
+            transition: var(--transition-smooth);
+            z-index: -1;
+        }
+
+        .btn-primary:hover::before {
+            left: 0;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+        }
+
+        /* About Section */
+        #about {
+            background-color: var(--bg-secondary);
+        }
+
+        .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+            gap: 4rem;
+            align-items: center;
         }
-        @media (max-width: 768px) {
-            .grid-2 {
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-box {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-primary);
+            transition: var(--transition-smooth);
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-color: var(--accent-secondary);
+        }
+
+        .stat-title {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Education & Experience Shared */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 20px;
+            height: 100%;
+            width: 2px;
+            background: var(--bg-card);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 14px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--accent-primary);
+            box-shadow: 0 0 10px var(--accent-primary);
+        }
+
+        .timeline-date {
+            color: var(--accent-primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-org {
+            color: var(--accent-secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-desc {
+            color: var(--text-secondary);
+        }
+        
+        .timeline-desc ul {
+            list-style-position: inside;
+            margin-top: 0.5rem;
+        }
+
+        /* Skills Section */
+        #skills {
+            background-color: var(--bg-secondary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition-smooth);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 240, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-category h3::before {
+            content: '/>';
+            color: var(--accent-primary);
+            font-family: monospace;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-list li::before {
+            content: '▹';
+            color: var(--accent-secondary);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-text);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition-smooth);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            background: #253141;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .folder-icon {
+            color: var(--accent-primary);
+            font-size: 2rem;
+            line-height: 1;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            list-style: none;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: var(--accent-secondary);
+        }
+
+        /* Certifications Section */
+        #certifications {
+            background-color: var(--bg-secondary);
+        }
+
+        .cert-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border-left: 4px solid var(--accent-secondary);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-item {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            text-decoration: none;
+        }
+
+        .contact-item span {
+            color: var(--accent-primary);
+            font-family: monospace;
+        }
+
+        footer {
+            background: var(--bg-card);
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-smooth);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .about-grid {
                 grid-template-columns: 1fr;
             }
-            header h1 {
-                font-size: 2rem;
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            .hero-subtitle {
+                font-size: 1.5rem;
             }
         }
-        footer {
-            text-align: center;
-            padding: 3rem 1rem;
-            font-size: 0.9rem;
-            color: #6b7280;
-            background-color: #e5e7eb;
-            margin-top: 3rem;
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Hide for mobile in this simple version, or implement toggle */
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 14, 23, 0.95);
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem 0;
+                backdrop-filter: blur(10px);
+            }
+            
+            .nav-links.show {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            section {
+                padding: 4rem 0;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>M.Sc. Romel Percy Melgarejo Bolivar</h1>
-        <p>Ingeniero Estadístico e Informático | Especialista en TI, Ciencia de Datos y Docencia Universitaria</p>
-    </header>
-
-    <div class="container">
-        
-        <!-- SECCIÓN 1: RESUMEN EJECUTIVO -->
-        <section id="resumen">
-            <h2>📝 Resumen Profesional</h2>
-            <p>Profesional peruano de la ingeniería con competencias avanzadas en Ciencia de Datos, redes telemáticas, tecnologías Web y simulación de entornos tridimensionales. Sólido trasfondo en la investigación científica aplicada al ámbito de la salud y educación, respaldado por la dirección de proyectos y cargos de liderazgo institucional en la región Puno [CTI Vitae - CONCYTEC].</p>
-        </section>
-
-        <!-- SECCIÓN 2: FORMACIÓN ACADÉMICA Y IDIOMAS (DISEÑO EN CUADRÍCULA) -->
-        <div class="grid-2">
-            <section id="educacion">
-                <h2>🎓 Formación Superior</h2>
-                <ul>
-                    <li>
-                        <strong>Magíster Scientiae en Informática</strong><br>
-                        Mención en Gerencia de TIC — Universidad Nacional del Altiplano [CTI Vitae - CONCYTEC]
-                    </li>
-                    <li>
-                        <strong>Ingeniero Estadístico e Informático</strong><br>
-                        Título Profesional — Universidad Nacional del Altiplano [CTI Vitae - CONCYTEC]
-                    </li>
-                    <li>
-                        <strong>Bachiller en Ciencias Estadísticas e Informática</strong><br>
-                        Grado Académico — Universidad Nacional del Altiplano [CTI Vitae - CONCYTEC]
-                    </li>
-                    <li>
-                        <strong>Especialidad en Mecatrónica Automotriz</strong><br>
-                        Estudios Técnicos — I.S.T. José Antonio Encinas (Puno)
-                    </li>
-                </ul>
-            </section>
-
-            <section id="idiomas">
-                <h2>🌐 Competencias Lingüísticas</h2>
-                <ul>
-                    <li><strong>Quechua:</strong> Lengua Nativa (Nivel Avanzado)</li>
-                    <li><strong>Inglés:</strong> Nivel Intermedio (Lectura y Escritura)</li>
-                    <li><strong>Portugués:</strong> Nivel Intermedio (Certificado de Suficiencia)</li>
-                </ul>
-                <br>
-                <div style="text-align: center;">
-                    <a href="https://concytec.gob.pe" target="_blank" class="btn-verify">
-                        ✓ Verificar Perfil Oficial CONCYTEC
-                    </a>
-                </div>
-            </section>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="logo">Blancora<span class="highlight">.</span></a>
+            <button class="mobile-menu-btn" id="mobile-btn">☰</button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <!-- SECCIÓN 3: EXPERIENCIA INSTITUCIONAL -->
-        <section id="experiencia">
-            <h2>💼 Experiencia Laboral e Institucional</h2>
-            <ul>
-                <li>
-                    <strong>Presidente del Capítulo de Ingenieros Estadísticos e Informáticos</strong><br>
-                    Colegio de Ingenieros del Perú — Consejo Departamental Puno
-                    <br><span class="badge">Octubre 2022 - Actualidad</span>
-                </li>
-                <li>
-                    <strong>Docente Universitario Ordinario / Investigador</strong><br>
-                    Universidad Nacional del Altiplano Puno (UNA Puno)
-                    <br><span class="badge">2020 - Actualidad</span>
-                </li>
-                <li>
-                    <strong>Docente Auxiliar Ordinario</strong><br>
-                    Universidad Nacional de Moquegua (UNAM) [CTI Vitae - CONCYTEC]
-                </li>
-            </ul>
-        </section>
+    <section id="hero">
+        <div class="container hero-content reveal">
+            <span class="hero-greeting">Hi, my name is</span>
+            <h1 class="hero-title">Kenyi Blanca Escobedo Arapa.</h1>
+            <h2 class="hero-subtitle highlight">I build intelligent systems.</h2>
+            <p class="hero-desc">
+                I am a Software Engineer and Data Science practitioner specializing in Artificial Intelligence. 
+                I design robust architectures, analyze complex datasets, and create responsive applications that 
+                bridge the gap between sophisticated algorithms and intuitive user experiences.
+            </p>
+            <a href="#projects" class="btn btn-primary">View My Work</a>
+        </div>
+    </section>
 
-        <!-- SECCIÓN 4: PROPIEDAD INTELECTUAL -->
-        <section id="propiedad-intelectual">
-            <h2>🛠️ Registro de Software y Patentes (INDECOPI)</h2>
-            <p style="color: #6b7280; font-size: 0.9rem; margin-bottom: 1rem;">Soluciones tecnológicas y sistemas con derechos de autor reconocidos por el Estado Peruano:</p>
-            <ul>
-                <li>
-                    <span class="project-title">Criptologin</span> — Módulo integrable de validación de usuarios mediante token USB DNI electrónico (Reg. 31152022) [CTI Vitae - CONCYTEC].
-                </li>
-                <li>
-                    <span class="project-title">Enviromaker</span> — Software de procesamiento y generación de ambientes tridimensionales (Reg. 31132022) [CTI Vitae - CONCYTEC].
-                </li>
-                <li>
-                    <span class="project-title">GLPAK GUI</span> — Interfaz gráfica para renderizado 3D en ventanas Win GDI+ (Reg. 31122022) [CTI Vitae - CONCYTEC].
-                </li>
-                <li>
-                    <span class="project-title">Plataforma de Certificación Electrónica</span> — Desarrollo arquitectónico de software para emisión de firmas seguras (Reg. 1382017) [CTI Vitae - CONCYTEC].
-                </li>
-            </ul>
-        </section>
+    <section id="about">
+        <div class="container reveal">
+            <h2>About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        I am a 20-year-old professional based in Puno, Peru, holding a degree in <strong>Software Engineering with Artificial Intelligence</strong> from SENATI, and currently advancing my academic foundation in <strong>Statistics and Informatics</strong> at the Universidad Nacional del Altiplano.
+                    </p>
+                    <p>
+                        My technical journey is defined by a passion for solving complex problems. From developing front-end graphical interfaces to designing statistical models and evaluating predictive algorithms like EigenFace and FisherFace, I thrive in environments that require continuous learning and structured thinking. 
+                    </p>
+                    <p>
+                        Outside of compiling code and analyzing data, my dedication to Taekwondo keeps me disciplined and focused. The same commitment, order, and strategic approach I bring to the mat are deeply reflected in my professional workflow and teamwork.
+                    </p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-box">
+                        <div class="stat-title">Background</div>
+                        <div class="stat-value">Software & AI</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-title">Current Focus</div>
+                        <div class="stat-value">Data Science</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-title">Location</div>
+                        <div class="stat-value">Puno, Peru</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-title">Mindset</div>
+                        <div class="stat-value">Continuous Growth</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- SECCIÓN 5: PRODUCCIÓN CIENTÍFICA -->
-        <section id="investigacion">
-            <h2>🔬 Producción Científica e Investigación</h2>
-            <ul>
-                <li>
-                    <strong>Capítulo de Libro (2023):</strong> "Predicción de diabetes en mujeres mediante un modelo probabilístico basado en Redes Bayesianas" en la publicación internacional <em>O Cuidado em Saúde Baseado em Evidências</em> [CTI Vitae - CONCYTEC].
-                </li>
-                <li>
-                    <strong>Artículo de Revista (2022):</strong> "Arquitectura pervasiva con tecnologías WebRTC híbridas para el desarrollo de un framework Modelo Vista Controlador de tiempo real" [CTI Vitae - CONCYTEC].
-                </li>
-                <li>
-                    <strong>Tesis de Postgrado (2021):</strong> "Redes privadas virtuales multimedia y su influencia en la seguridad de la información" — Universidad Nacional del Altiplano.
-                </li>
-            </ul>
-            
-            <!-- CONTENEDOR DE ENLACES DE VERIFICACIÓN -->
+    <section id="education">
+        <div class="container reveal">
+            <h2>Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2023 - Present</div>
+                    <h3 class="timeline-title">Student of Statistics and Informatics</h3>
+                    <div class="timeline-org">Universidad Nacional del Altiplano (UNAP) - Puno</div>
+                    <p class="timeline-desc">Advancing theoretical knowledge in data analysis, statistical modeling, probability forecasting, and time series decomposition.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 - 2024</div>
+                    <h3 class="timeline-title">Technical Professional Degree</h3>
+                    <div class="timeline-org">SENATI - Puno</div>
+                    <p class="timeline-desc">Major in Software Engineering with Artificial Intelligence. Developed a strong foundation in programming, algorithms, machine learning concepts, and software lifecycle management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container reveal">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend & UI</h3>
+                    <ul class="skill-list">
+                        <li>HTML5, CSS3, Vanilla JS</li>
+                        <li>Responsive Web Design</li>
+                        <li>GUI Development</li>
+                        <li>WordPress Ecosystem</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend & Core Logic</h3>
+                    <ul class="skill-list">
+                        <li>Python</li>
+                        <li>C++</li>
+                        <li>PHP</li>
+                        <li>Database Structuring</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Data & AI</h3>
+                    <ul class="skill-list">
+                        <li>Statistical Modeling</li>
+                        <li>Time Series Analysis</li>
+                        <li>Machine Learning Algorithms</li>
+                        <li>Biometrics (EigenFace/FisherFace)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Workflow & Support</h3>
+                    <ul class="skill-list">
+                        <li>Scrum / Agile Methodologies</li>
+                        <li>Project Supervision</li>
+                        <li>IT Technical Support</li>
+                        <li>Hardware Maintenance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container reveal">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <div class="project-top">
+                        <div class="folder-icon">◩</div>
+                    </div>
+                    <h3 class="project-title">"VeoVeo" Optometry Management</h3>
+                    <p class="project-desc">A comprehensive web application designed for optical clinic management, developed successfully as a capstone titling project at SENATI.</p>
+                    <ul class="project-tech">
+                        <li>Web Development</li>
+                        <li>System Design</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-top">
+                        <div class="folder-icon">◩</div>
+                    </div>
+                    <h3 class="project-title">Biometric Facial Recognition</h3>
+                    <p class="project-desc">Implemented a sophisticated facial recognition system leveraging mathematical implementations of EigenFace and FisherFace algorithms for secure identification.</p>
+                    <ul class="project-tech">
+                        <li>AI Model</li>
+                        <li>Python</li>
+                        <li>Algorithms</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-top">
+                        <div class="folder-icon">◩</div>
+                    </div>
+                    <h3 class="project-title">Interactive Morse Code Trainer</h3>
+                    <p class="project-desc">A professional educational web tool designed with binary tree logic and visual path animations to help users effectively learn and practice Morse code.</p>
+                    <ul class="project-tech">
+                        <li>JavaScript</li>
+                        <li>Binary Trees</li>
+                        <li>UI/UX</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-top">
+                        <div class="folder-icon">◩</div>
+                    </div>
+                    <h3 class="project-title">Mobile Dimension Matcher</h3>
+                    <p class="project-desc">Responsive web utility that algorithmically compares physical screen heights and widths across commercial phone brands, identifying identical configurations within a 2mm tolerance.</p>
+                    <ul class="project-tech">
+                        <li>HTML/CSS/JS</li>
+                        <li>Responsive Design</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-top">
+                        <div class="folder-icon">◩</div>
+                    </div>
+                    <h3 class="project-title">Agricultural Yield Statistics</h3>
+                    <p class="project-desc">Statistical simulation and decomposition of local potato production in Puno, generating complex data analysis regarding altitude impact and frost incidence.</p>
+                    <ul class="project-tech">
+                        <li>Data Science</li>
+                        <li>Regression</li>
+                        <li>Analysis</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-top">
+                        <div class="folder-icon">◩</div>
+                    </div>
+                    <h3 class="project-title">UNAP Institutional Website</h3>
+                    <p class="project-desc">Creation and deployment of the official institutional website for the IT Office, ensuring a modern interface and easy content management via WordPress.</p>
+                    <ul class="project-tech">
+                        <li>WordPress</li>
+                        <li>CMS Support</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container reveal">
+            <h2>Professional Experience</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Dec 2024 - Mar 2025</div>
+                    <h3 class="timeline-title">Secretary / Customer Service</h3>
+                    <div class="timeline-org">Centro Médico Arcángel SAC</div>
+                    <p class="timeline-desc">
+                        Worked at an authorized medical center for driver evaluation.
+                        <ul>
+                            <li>Customer service and orientation for obtaining driver's licenses.</li>
+                            <li>Registration and organization of medical and administrative documents.</li>
+                            <li>IT system support, appointment control, and internal task coordination.</li>
+                        </ul>
+                    </p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Professional Practice</div>
+                    <h3 class="timeline-title">Project Supervisor / Scrum Master</h3>
+                    <div class="timeline-org">Software Development Enterprise (SENATI)</div>
+                    <p class="timeline-desc">Supervised software projects utilizing Scrum methodologies, managing task coordination and ensuring efficient team deliverables.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Professional Practice</div>
+                    <h3 class="timeline-title">Web Developer & Tech Support</h3>
+                    <div class="timeline-org">Office of Information Technologies (UNAP)</div>
+                    <p class="timeline-desc">Provided technical support to institutional hardware and successfully built the official departmental website.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Professional Practice</div>
+                    <h3 class="timeline-title">Technical Support Specialist</h3>
+                    <div class="timeline-org">Perusis Computing Store</div>
+                    <p class="timeline-desc">Delivered hands-on customer support, conducted basic equipment maintenance, and diagnosed hardware/software issues.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="container reveal">
+            <h2>Certifications & Affiliations</h2>
+            <div class="cert-card">
+                <h3 class="timeline-title">Member of ScorpionStudentHub-FINESI</h3>
+                <div class="timeline-date">2025 - Present</div>
+                <p class="timeline-desc">Certified collaborating member. Active participation in software engineering projects, telecommunications initiatives, and technological training programs aimed at empowering youth.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container reveal">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <p>I am currently open to new opportunities, freelance projects, and collaborations. Whether you have a question about my work or just want to connect, feel free to reach out!</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>Tel:</span> +51 944 396 740
+                    </div>
+                    <div class="contact-item">
+                        <span>Location:</span> Jr. Guillermo Cruz 515, Alto Puno - Puno, Perú
+                    </div>
+                </div>
+
+                <a href="mailto:contact@blancora.com" class="btn btn-primary">Say Hello</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Designed & Built by Blancora (Kenyi Blanca Escobedo Arapa) © 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-btn');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('show');
+            });
+        });
+
+        // Scroll Reveal Animation
+        function revealElements() {
+            const reveals = document.querySelectorAll('.reveal');
+            const windowHeight = window.innerHeight;
+            const elementVisible = 100;
+
+            reveals.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealElements);
+        
+        // Trigger once on load
+        window.addEventListener('load', revealElements);
+
+        // Sticky Navbar effect styling based on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.5)';
+                navbar.style.background = 'rgba(10, 14, 23, 0.98)';
+            } else {
+                navbar.style.boxShadow = 'none';
+                navbar.style.background = 'rgba(10, 14, 23, 0.9)';
+            }
+        });
+    </script>
+</body>
+</html>
