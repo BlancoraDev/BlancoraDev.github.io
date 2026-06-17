@@ -2,7 +2,7 @@
 <!--
   ============================================================================
   PORTAFOLIO 2.0 — Blanca Escobedo Arapa · Marca personal "Blancora"
-  Stack: HTML + CSS + JavaScript nativo. 
+  Stack: HTML + CSS + JavaScript nativo. Archivo unico. GitHub Pages ready.
   ============================================================================
 -->
 <html lang="es" data-theme="dark">
@@ -225,7 +225,13 @@
     .info-list span{ font-size:.84rem; color:var(--text-soft); }
 
     /* ===== HABILIDADES ===== */
-    .skills-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(26px,4vw,52px); }
+    .skills-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(26px,4vw,52px); }
+    @media (max-width:920px){
+       .skills-grid{ grid-template-columns:repeat(2,1fr); }
+     }
+    @media (max-width:720px){
+       .skills-grid{ grid-template-columns:1fr; }
+     }
     .skill-col h3{ font-size:1.15rem; margin-bottom:20px; display:flex; align-items:center; gap:10px; }
     .skill-col h3 .ico{ width:32px; height:32px; border-radius:9px; background:var(--chip); display:grid; place-items:center; color:var(--magenta); }
     .skill-col h3 .ico svg{ width:17px; height:17px; }
@@ -234,6 +240,8 @@
     .skill .top em{ font-family:var(--f-mono); font-style:normal; color:var(--text-faint); font-size:.78rem; }
     .bar{ height:8px; background:var(--surface-2); border:1px solid var(--line); border-radius:999px; overflow:hidden; }
     .bar > i{ display:block; height:100%; width:0; border-radius:999px; background:var(--grad); box-shadow:var(--glow-strong); transition:width 1.2s var(--ease); }
+
+    .proj-category{ margin-top:30px; grid-column:1/-1; }
 
     /* ===== TIMELINE ===== */
     .split2{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(34px,5vw,68px); }
@@ -337,15 +345,18 @@
     .reveal.d3{ transition-delay:.21s; } .reveal.d4{ transition-delay:.28s; }
 
     /* ===== RESPONSIVE ===== */
-    @media (max-width:920px){
-      .hero-grid, .about-grid, .skills-grid, .split2, .card-grid, .gh-wrap, .contact-grid{ grid-template-columns:1fr; }
-      .hero-grid{ text-align:center; }
-      .hero p.lead, .typing-line{ margin-inline:auto; }
-      .typing-line{ justify-content:center; }
-      .hero-actions, .hero-stats{ justify-content:center; }
-      .portrait{ order:-1; margin-bottom:14px; }
-      .gh-card{ max-width:420px; margin-inline:auto; }
-    }
+@media (max-width:920px){
+       .hero-grid, .about-grid, .split2, .card-grid, .gh-wrap, .contact-grid{ grid-template-columns:1fr; }
+       .hero-grid{ text-align:center; }
+       .hero p.lead, .typing-line{ margin-inline:auto; }
+       .typing-line{ justify-content:center; }
+       .hero-actions, .hero-stats{ justify-content:center; }
+       .portrait{ order:-1; margin-bottom:14px; }
+       .gh-card{ max-width:420px; margin-inline:auto; }
+     }
+     @media (max-width:720px){
+       .skills-grid{ grid-template-columns:1fr; }
+     }
     @media (max-width:860px){
       .menu{ position:fixed; inset:0 0 0 auto; width:min(80vw,310px); background:var(--bg); border-left:1px solid var(--line); flex-direction:column; align-items:stretch; justify-content:flex-start; padding:92px 22px 30px; gap:5px; box-shadow:var(--shadow); transform:translateX(100%); transition:transform .4s var(--ease); z-index:99; }
       .menu.open{ transform:translateX(0); }
@@ -376,14 +387,15 @@
         <span class="mark" aria-hidden="true">B</span>
         <span class="name">Blancora<small>Blanca Escobedo</small></span>
       </a>
-      <nav class="menu" id="menu" aria-label="Navegación principal">
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#habilidades">Habilidades</a>
-        <a href="#trayectoria">Trayectoria</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#github">GitHub</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
+<nav class="menu" id="menu" aria-label="Navegación principal">
+         <a href="#sobre-mi">Sobre mí</a>
+         <a href="#idiomas">Idiomas</a>
+         <a href="#habilidades">Habilidades</a>
+         <a href="#trayectoria">Trayectoria</a>
+         <a href="#proyectos">Proyectos</a>
+         <a href="#github">GitHub</a>
+         <a href="#contacto">Contacto</a>
+       </nav>
       <div class="nav-tools">
         <button class="theme-toggle" id="themeToggle" role="switch" aria-checked="true" aria-label="Cambiar entre modo claro y oscuro">
           <span class="knob" aria-hidden="true">
@@ -409,7 +421,7 @@
           <p class="typing-line reveal d2" aria-label="Áreas de especialización">
             <span class="prefix">&gt;</span><span class="typing-text" id="typing"></span><span class="typing-caret" aria-hidden="true"></span>
           </p>
-          <p class="lead reveal d3">Construyo software, modelos de datos y experiencias web con un enfoque claro: soluciones útiles, bien hechas y con identidad. Formada en ingeniería de software con inteligencia artificial.</p>
+          <p class="lead reveal d3">Ingeniera de Software y Estadística en formación. Desarrollo aplicaciones web y análisis de datos con enfoque en soluciones funcionales y bien estructuradas. Disponible para oportunidades junior.</p>
           <div class="hero-actions reveal d4">
             <a href="#proyectos" class="btn btn-primary">Ver proyectos
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -440,8 +452,8 @@
     <!-- MARQUEE -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track">
-        <span>Python</span><span>JavaScript</span><span>React</span><span>Laravel</span><span>Machine Learning</span><span>Power BI</span><span>SQL</span><span>Git</span>
-        <span>Python</span><span>JavaScript</span><span>React</span><span>Laravel</span><span>Machine Learning</span><span>Power BI</span><span>SQL</span><span>Git</span>
+        <span>Laravel</span><span>Python</span><span>R</span><span>MySQL</span><span>MongoDB</span><span>Power BI</span><span>HTML5</span><span>CSS3</span>
+        <span>Laravel</span><span>Python</span><span>R</span><span>MySQL</span><span>MongoDB</span><span>Power BI</span><span>HTML5</span><span>CSS3</span>
       </div>
     </div>
 
@@ -451,9 +463,9 @@
         <div class="about-text reveal">
           <span class="eyebrow">Sobre mí</span>
           <h2 id="about-title">Desarrollo con <span class="grad-text">propósito</span></h2>
-          <p>Soy <span class="hl">Blanca Escobedo Arapa</span>, desarrolladora de software formada en ingeniería de software con inteligencia artificial. Complemento mi perfil técnico con estudios en estadística e informática, lo que me permite trabajar tanto el desarrollo de aplicaciones como el análisis de datos.</p>
-          <p>Me muevo con soltura entre el <span class="hl">desarrollo web, la ciencia de datos y el soporte técnico</span>. Disfruto convertir problemas reales en soluciones limpias, y aprendo rápido las herramientas que cada proyecto necesita.</p>
-          <blockquote class="about-quote">Codifico con orden, diseño con criterio y entrego con compromiso.</blockquote>
+          <p>Soy <span class="hl">Blanca Escobedo Arapa</span>, Ingeniera de Software y Estadística en formación, con competencias en desarrollo web, análisis de datos, bases de datos y sistemas. Cuento con experiencia en proyectos académicos y personales que abarcan programación, dashboards interactivos, sistemas web y simulación de redes.</p>
+          <p>Me especializo en la construcción de <span class="hl">aplicaciones web con Laravel y PHP</span>, el desarrollo de <span class="hl">dashboards de análisis</span> con Python/Tkinter y R Shiny, y la gestión de bases de datos relacionales y NoSQL. Mi perfil combinado me permite abordar soluciones integrales que van desde el frontend hasta el backend y el análisis de datos.</p>
+          <blockquote class="about-quote">Ingeniera de Software con visión analítica: convierto datos en decisiones y código en experiencias.</blockquote>
           <div class="about-tags"><span>Responsable</span><span>Resolutiva</span><span>Autodidacta</span><span>Trabajo en equipo</span><span>Detallista</span></div>
         </div>
         <aside class="about-card reveal d2" aria-label="Datos rápidos">
@@ -468,6 +480,30 @@
       </div>
     </section>
 
+    <!-- IDIOMAS -->
+    <section class="pad wrap" id="idiomas" aria-labelledby="lang-title">
+      <div class="section-head reveal">
+        <span class="eyebrow">Comunicación</span>
+        <h2 id="lang-title">Idiomas &amp; <span class="grad-text">habilidades blandas</span></h2>
+        <p>Competencias lingüísticas y habilidades interpersonales para colaboración técnica internacional.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="about-card reveal d2" style="grid-column:1/-1; max-width:540px;">
+          <h3 style="margin-bottom:18px;">Idiomas</h3>
+          <div class="info-list" style="border-top:0; padding:0;">
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:13px 0; border-bottom:1px solid var(--line);">
+              <div><b>Español</b><span>Idioma nativo</span></div>
+              <span class="eyebrow" style="font-size:.82rem; letter-spacing:.1em; margin:0;">Nativo</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:13px 0;">
+              <div><b>English</b><span>B1-B2 Intermediate - Technical reading and writing</span></div>
+              <span class="eyebrow" style="font-size:.82rem; letter-spacing:.1em; margin:0;">Intermedio</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- HABILIDADES -->
     <section class="pad wrap" id="habilidades" aria-labelledby="skills-title">
       <div class="section-head reveal">
@@ -477,20 +513,53 @@
       </div>
       <div class="skills-grid">
         <div class="skill-col reveal">
-          <h3><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span> Desarrollo &amp; Web</h3>
-          <div class="skill"><div class="top"><span>HTML &amp; CSS</span><em>Avanzado</em></div><div class="bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="HTML y CSS"><i data-w="90"></i></div></div>
-          <div class="skill"><div class="top"><span>JavaScript</span><em>Sólido</em></div><div class="bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="JavaScript"><i data-w="80"></i></div></div>
-          <div class="skill"><div class="top"><span>React</span><em>Intermedio</em></div><div class="bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="React"><i data-w="70"></i></div></div>
-          <div class="skill"><div class="top"><span>PHP &amp; Laravel</span><em>Intermedio</em></div><div class="bar" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" aria-label="PHP y Laravel"><i data-w="68"></i></div></div>
-          <div class="skill"><div class="top"><span>Git &amp; GitHub</span><em>Sólido</em></div><div class="bar" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" aria-label="Git y GitHub"><i data-w="82"></i></div></div>
+          <h3><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg></span> Análisis de datos</h3>
+          <div class="skill"><div class="top"><span>R</span><em>Intermedio</em></div><div class="bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="R"><i data-w="75"></i></div></div>
+          <div class="skill"><div class="top"><span>R Studio</span><em>Intermedio</em></div><div class="bar" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" aria-label="R Studio"><i data-w="72"></i></div></div>
+          <div class="skill"><div class="top"><span>Excel</span><em>Avanzado</em></div><div class="bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Excel"><i data-w="85"></i></div></div>
+          <div class="skill"><div class="top"><span>Power BI</span><em>Intermedio</em></div><div class="bar" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" aria-label="Power BI"><i data-w="72"></i></div></div>
+          <div class="skill"><div class="top"><span>SPSS</span><em>Básico</em></div><div class="bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="SPSS"><i data-w="60"></i></div></div>
+          <div class="skill"><div class="top"><span>EViews 13</span><em>Básico</em></div><div class="bar" role="progressbar" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100" aria-label="EViews 13"><i data-w="58"></i></div></div>
+          <div class="skill"><div class="top"><span>Minitab</span><em>Básico</em></div><div class="bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" aria-label="Minitab"><i data-w="55"></i></div></div>
         </div>
         <div class="skill-col reveal d2">
-          <h3><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg></span> Datos, IA &amp; Herramientas</h3>
+          <h3><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4.68 3-9 3S3 13.66 3 12"/><path d="M3 5v14c0 1.66 4.68 3 9 3s9-1.34 9-3V5"/></svg></span> Bases de datos</h3>
+          <div class="skill"><div class="top"><span>MySQL</span><em>Sólido</em></div><div class="bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="MySQL"><i data-w="80"></i></div></div>
+          <div class="skill"><div class="top"><span>SQL Server</span><em>Intermedio</em></div><div class="bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="SQL Server"><i data-w="70"></i></div></div>
+          <div class="skill"><div class="top"><span>PostgreSQL</span><em>Intermedio</em></div><div class="bar" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" aria-label="PostgreSQL"><i data-w="68"></i></div></div>
+          <div class="skill"><div class="top"><span>Oracle</span><em>Básico</em></div><div class="bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="Oracle"><i data-w="60"></i></div></div>
+          <div class="skill"><div class="top"><span>MongoDB</span><em>Intermedio</em></div><div class="bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="MongoDB"><i data-w="70"></i></div></div>
+          <div class="skill"><div class="top"><span>HeidiSQL</span><em>Sólido</em></div><div class="bar" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" aria-label="HeidiSQL"><i data-w="78"></i></div></div>
+          <div class="skill"><div class="top"><span>XAMPP</span><em>Sólido</em></div><div class="bar" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" aria-label="XAMPP"><i data-w="82"></i></div></div>
+          <div class="skill"><div class="top"><span>Laragon</span><em>Intermedio</em></div><div class="bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="Laragon"><i data-w="70"></i></div></div>
+        </div>
+        <div class="skill-col reveal">
+          <h3><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span> Desarrollo web</h3>
+          <div class="skill"><div class="top"><span>HTML5</span><em>Avanzado</em></div><div class="bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="HTML5"><i data-w="90"></i></div></div>
+          <div class="skill"><div class="top"><span>CSS3</span><em>Avanzado</em></div><div class="bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="CSS3"><i data-w="88"></i></div></div>
+          <div class="skill"><div class="top"><span>JavaScript</span><em>Sólido</em></div><div class="bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="JavaScript"><i data-w="80"></i></div></div>
+          <div class="skill"><div class="top"><span>PHP</span><em>Intermedio</em></div><div class="bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="PHP"><i data-w="70"></i></div></div>
+          <div class="skill"><div class="top"><span>Laravel</span><em>Intermedio</em></div><div class="bar" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" aria-label="Laravel"><i data-w="68"></i></div></div>
+          <div class="skill"><div class="top"><span>Angular</span><em>Básico</em></div><div class="bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="Angular"><i data-w="60"></i></div></div>
+        </div>
+        <div class="skill-col reveal d2">
+          <h3><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span> Programación</h3>
           <div class="skill"><div class="top"><span>Python</span><em>Sólido</em></div><div class="bar" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" aria-label="Python"><i data-w="82"></i></div></div>
-          <div class="skill"><div class="top"><span>SQL</span><em>Sólido</em></div><div class="bar" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" aria-label="SQL"><i data-w="78"></i></div></div>
-          <div class="skill"><div class="top"><span>Power BI</span><em>Intermedio</em></div><div class="bar" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" aria-label="Power BI"><i data-w="72"></i></div></div>
-          <div class="skill"><div class="top"><span>Machine Learning &amp; Data Science</span><em>En desarrollo</em></div><div class="bar" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100" aria-label="Machine Learning y Data Science"><i data-w="66"></i></div></div>
-          <div class="skill"><div class="top"><span>Visual Studio / VS Code</span><em>Avanzado</em></div><div class="bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="Visual Studio y VS Code"><i data-w="88"></i></div></div>
+          <div class="skill"><div class="top"><span>C++</span><em>Intermedio</em></div><div class="bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="C++"><i data-w="70"></i></div></div>
+          <div class="skill"><div class="top"><span>C#</span><em>Intermedio</em></div><div class="bar" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" aria-label="C#"><i data-w="72"></i></div></div>
+          <div class="skill"><div class="top"><span>.NET (Xamarin)</span><em>Intermedio</em></div><div class="bar" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" aria-label=".NET Xamarin"><i data-w="68"></i></div></div>
+          <div class="skill"><div class="top"><span>NetBeans</span><em>Sólido</em></div><div class="bar" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" aria-label="NetBeans"><i data-w="78"></i></div></div>
+        </div>
+        <div class="skill-col reveal">
+          <h3><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/><path d="M12 8v4l2 2"/></svg></span> Control de versiones</h3>
+          <div class="skill"><div class="top"><span>Git</span><em>Sólido</em></div><div class="bar" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" aria-label="Git"><i data-w="82"></i></div></div>
+          <div class="skill"><div class="top"><span>Git Bash</span><em>Sólido</em></div><div class="bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Git Bash"><i data-w="80"></i></div></div>
+        </div>
+        <div class="skill-col reveal d2">
+          <h3><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l2.6 2.6a1 1 0 0 0 1.4 0l4.4-4.4a1 1 0 0 0-1.4-1.4l-2.6 2.6a1 1 0 0 1-1.4 0L14.7 6.3z"/><path d="M21 11.5a6.5 6.5 0 0 1-6.5 6.5 6.5 6.5 0 0 1-6.5-6.5V7a4 4 0 0 1 8 0v4.5z"/></svg></span> Otros</h3>
+          <div class="skill"><div class="top"><span>LaTeX</span><em>Intermedio</em></div><div class="bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="LaTeX"><i data-w="70"></i></div></div>
+          <div class="skill"><div class="top"><span>Unity</span><em>Básico</em></div><div class="bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="Unity"><i data-w="60"></i></div></div>
+          <div class="skill"><div class="top"><span>Cisco Packet Tracer</span><em>Intermedio</em></div><div class="bar" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" aria-label="Cisco Packet Tracer"><i data-w="72"></i></div></div>
         </div>
       </div>
     </section>
@@ -548,38 +617,79 @@
     <section class="pad wrap" id="proyectos" aria-labelledby="proj-title">
       <div class="section-head reveal">
         <span class="eyebrow">Proyectos</span>
-        <h2 id="proj-title">Trabajo <span class="grad-text">destacado</span></h2>
-        <p>Proyectos y prácticas donde apliqué desarrollo, datos y gestión.</p>
+        <h2 id="proj-title">Portafolio <span class="grad-text">técnico</span></h2>
+        <p>Proyectos académicos y personales organizados por especialidad.</p>
       </div>
-      <div class="card-grid">
-        <article class="card reveal">
-          <div class="pico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg></div>
-          <span class="loc">SENATI · Titulación</span>
-          <h4>VeoVeo — Gestión de óptica</h4>
-          <p>Aplicación web para la gestión integral de una óptica: clientes, inventario y ventas. Proyecto de titulación.</p>
-          <div class="tags"><span>PHP</span><span>MySQL</span><span>JavaScript</span><span>App web</span></div>
-        </article>
-        <article class="card reveal d2">
-          <div class="pico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-          <span class="loc">UNAP · Oficina TI</span>
-          <h4>Web institucional</h4>
-          <p>Desarrollo y soporte de una página web institucional con WordPress en la Oficina de Tecnologías de la Información.</p>
-          <div class="tags"><span>WordPress</span><span>PHP</span><span>Soporte</span></div>
-        </article>
-        <article class="card reveal d3">
-          <div class="pico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg></div>
-          <span class="loc">Datos</span>
-          <h4>Análisis &amp; visualización</h4>
-          <p>Exploración y visualización de datos con Python y Power BI: limpieza, métricas y tableros para apoyar decisiones.</p>
-          <div class="tags"><span>Python</span><span>Power BI</span><span>SQL</span><span>Data Science</span></div>
-        </article>
-        <article class="card reveal d4">
-          <div class="pico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-          <span class="loc">SENATI · Scrum</span>
-          <h4>Supervisión Scrum de software</h4>
-          <p>Coordinación y control de tareas de un equipo de desarrollo bajo metodología Scrum.</p>
-          <div class="tags"><span>Scrum</span><span>Gestión</span><span>Git</span></div>
-        </article>
+      <div class="skills-grid" style="gap:clamp(18px,3vw,32px);">
+        <div style="grid-column:1/-1;">
+          <h3 style="font-size:1.1rem; margin-bottom:20px; color:var(--magenta);">Sistemas Web</h3>
+          <div class="card-grid">
+            <article class="card reveal">
+              <div class="pico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="M2 8h20"/><path d="M6 12h4"/><path d="M6 16h4"/><path d="M14 12h6"/><path d="M14 16h6"/></svg></div>
+              <span class="loc">SENATI · Titulación</span>
+              <h4>Sistema de trámite documentario web</h4>
+              <p>Plataforma web para gestión integral de trámites, con control de flujos, estados y notificaciones automáticas.</p>
+              <div class="tags"><span>PHP</span><span>Laravel</span><span>MySQL</span><span>JavaScript</span></div>
+            </article>
+            <article class="card reveal d2">
+              <div class="pico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 12 18 2 8"/></svg></div>
+              <span class="loc">UNAP · Académico</span>
+              <h4>Sistema de regresión lineal en Laravel</h4>
+              <p>Aplicación web que implementa cálculos de regresión lineal con visualización de datos y gráficos interactivos.</p>
+              <div class="tags"><span>Laravel</span><span>PHP</span><span>JavaScript</span><span>Estadística</span></div>
+            </article>
+          </div>
+        </div>
+        <div style="grid-column:1/-1; margin-top:30px;">
+          <h3 style="font-size:1.1rem; margin-bottom:20px; color:var(--magenta);">Análisis de datos</h3>
+          <div class="card-grid">
+            <article class="card reveal d3">
+              <div class="pico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+              <span class="loc">UNAP · Académico</span>
+              <h4>Dashboard de estadística computacional</h4>
+              <p>Interfaz gráfica para análisis estadístico con visualización de distribuciones, pruebas de hipótesis y generación de reportes.</p>
+              <div class="tags"><span>Python</span><span>Tkinter</span><span>Data Science</span></div>
+            </article>
+            <article class="card reveal d4">
+              <div class="pico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2v10l4 4"/></svg></div>
+              <span class="loc">UNAP · Académico</span>
+              <h4>Aplicación de análisis con R Shiny</h4>
+              <p>Dashboard interactivo para análisis de datos con visualización dinámica y exportación de resultados en múltiples formatos.</p>
+              <div class="tags"><span>R</span><span>R Shiny</span><span>Estadística</span></div>
+            </article>
+          </div>
+        </div>
+        <div style="grid-column:1/-1; margin-top:30px;">
+          <h3 style="font-size:1.1rem; margin-bottom:20px; color:var(--magenta);">Bases de datos</h3>
+          <div class="card-grid">
+            <article class="card reveal d3">
+              <div class="pico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.68 3 9 3s9-1.34 9-3V5"/></svg></div>
+              <span class="loc">UNAP · Académico</span>
+              <h4>Sistema de gestión de estudiantes universitarios</h4>
+              <p>Base de datos relacional para gestión de matrículas, notas, horarios y reportes académicos.</p>
+              <div class="tags"><span>MySQL</span><span>SQL</span><span>PHP</span></div>
+            </article>
+            <article class="card reveal d4">
+              <div class="pico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-8-5a2 2 0 0 0-2 0l-8 5a2 2 0 0 0-1 1.73v8a2 2 0 0 0 1 1.73l8 5a2 2 0 0 0 2 0l8-5a2 2 0 0 0 1-1.73z"/><circle cx="12" cy="12" r="4"/></svg></div>
+              <span class="loc">SENATI · Practicante</span>
+              <h4>Sistema de administración de cobros para empresa de taxis</h4>
+              <p>Aplicación NoSQL para gestión de viajes, cobros y reportes financieros con arquitectura flexible.</p>
+              <div class="tags"><span>MongoDB</span><span>JavaScript</span><span>Node.js</span></div>
+            </article>
+          </div>
+        </div>
+        <div style="grid-column:1/-1; margin-top:30px;">
+          <h3 style="font-size:1.1rem; margin-bottom:20px; color:var(--magenta);">Redes y simulación</h3>
+          <div class="card-grid">
+            <article class="card reveal d3">
+              <div class="pico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="6" y1="10" x2="18" y2="10"/><line x1="6" y1="14" x2="18" y2="14"/><circle cx="5" cy="5" r="1"/><circle cx="9" cy="5" r="1"/><circle cx="14" cy="5" r="1"/><circle cx="18" cy="5" r="1"/></svg></div>
+              <span class="loc">UNAP · Académico</span>
+              <h4>Red simulada en Cisco Packet Tracer</h4>
+              <p>Simulación de red empresarial con PC, router, switch y servidor web configurado para múltiples VLANs.</p>
+              <div class="tags"><span>Cisco Packet Tracer</span><span>Redes</span><span>IP</span><span>VLAN</span></div>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -597,7 +707,7 @@
           </div>
           <h3 id="ghName">Blancora</h3>
           <p class="handle" id="ghHandle">@tu-usuario</p>
-          <p id="ghBio">Desarrolladora de software · IA &amp; ciencia de datos. Construyendo y aprendiendo en código abierto.</p>
+          <p id="ghBio">Ingeniera de Software y Estadística · Desarrollo web y análisis de datos.</p>
           <div class="gh-stats">
             <div><strong id="ghRepos">—</strong><span>repos</span></div>
             <div><strong id="ghFollowers">—</strong><span>seguidores</span></div>
@@ -664,12 +774,13 @@
       <div class="foot-top">
         <div class="foot-brand">
           <div class="mono">Blancora</div>
-          <p>Blanca Escobedo Arapa — desarrollo de software, IA y datos con identidad propia.</p>
+          <p>Blanca Escobedo Arapa — Ingeniera de Software y Estadística. Desarrollo web y análisis de datos.</p>
         </div>
         <nav class="foot-nav" aria-label="Navegación del pie">
           <div class="group">
             <h5>Explorar</h5>
             <a href="#sobre-mi">Sobre mí</a>
+            <a href="#idiomas">Idiomas</a>
             <a href="#habilidades">Habilidades</a>
             <a href="#proyectos">Proyectos</a>
             <a href="#github">GitHub</a>
@@ -699,19 +810,25 @@
 
   <script>
   "use strict";
+  /* ======================================================================
+     DATOS EDITABLES — cambia aqui tus enlaces UNA sola vez.
+     WhatsApp: solo numero con codigo de pais, sin "+", ej. 51944396740
+     foto: ruta a tu imagen ("blanca.jpg") o Base64 ("data:image/...").
+           Si la dejas "", se muestra el monograma "BE".
+     ====================================================================== */
   const DATOS = {
-    nombre:    "Kenyi Blanca Escobedo Arapa",
+    nombre:    "Blanca Escobedo Arapa",
     correo:    "escobedoarapabkv@gmail.com",
     whatsapp:  "51944396740",
-    foto:      "foto.jpg",                         
-    cvArchivo: "CV.pdf",             
-    githubUser:"https://github.com/BlancoraDev",                                  
+    foto:      "blanca.jpg",                         // tu foto real (en el repo)
+    cvArchivo: "cv-blanca-escobedo.pdf",             // tu CV real (en el repo)
+    githubUser:"",                                   // <-- tu usuario de GitHub (ej. "blancora")
     redes: {
       whatsapp:  "https://wa.me/51944396740",
       linkedin:  "https://www.linkedin.com/in/blanca-escobedo-arapa-91237039a/",
       facebook:  "https://www.facebook.com/thaliablanca.escobedo?locale=es_LA",
       instagram: "https://www.instagram.com/__blanquita__7/",
-      github:    "https://github.com/BlancoraDev"                                  
+      github:    ""                                  // <-- tu URL de GitHub (opcional)
     },
     roles: [
       "Desarrolladora de Software",
