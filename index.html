@@ -810,19 +810,13 @@
 
   <script>
   "use strict";
-  /* ======================================================================
-     DATOS EDITABLES — cambia aqui tus enlaces UNA sola vez.
-     WhatsApp: solo numero con codigo de pais, sin "+", ej. 51944396740
-     foto: ruta a tu imagen ("blanca.jpg") o Base64 ("data:image/...").
-           Si la dejas "", se muestra el monograma "BE".
-     ====================================================================== */
   const DATOS = {
     nombre:    "Blanca Escobedo Arapa",
     correo:    "escobedoarapabkv@gmail.com",
     whatsapp:  "51944396740",
-    foto:      "blanca.jpg",                         // tu foto real (en el repo)
-    cvArchivo: "cv-blanca-escobedo.pdf",             // tu CV real (en el repo)
-    githubUser:"",                                   // <-- tu usuario de GitHub (ej. "blancora")
+    foto:      "foto.jpg",                         
+    cvArchivo: "CV.pdf",             
+    githubUser:"https://github.com/BlancoraDev",                                   
     redes: {
       whatsapp:  "https://wa.me/51944396740",
       linkedin:  "https://www.linkedin.com/in/blanca-escobedo-arapa-91237039a/",
@@ -881,7 +875,7 @@
 
     // CV
     const cv = $("#cv-download");
-    if (cv && DATOS.cvArchivo){ cv.href = DATOS.cvArchivo; cv.setAttribute("download", "CV-Blanca-Escobedo-Arapa.pdf"); }
+    if (cv && DATOS.cvArchivo){ cv.href = DATOS.cvArchivo; cv.setAttribute("download", "CV-Kenyi Blanca-Escobedo-Arapa.pdf"); }
 
     // Foto: skeleton mientras carga, fade-in al cargar, y respaldo al monograma si falla
     if (DATOS.foto){
